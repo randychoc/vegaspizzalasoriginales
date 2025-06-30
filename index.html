@@ -26,7 +26,7 @@
             <div class="row align-items-center text-center text-md-start">
                 <!-- Logo izquierda -->
                 <div class="col-12 col-md-4 mb-2 mb-md-0 d-flex justify-content-center justify-content-md-start">
-                    <img src="img/logoTemporal.png" alt="Vegas Pizza Logo" class="me-2" style="height: 80px;" />
+                    <img src="img/vegasPizzaLogo.png" alt="Vegas Pizza Logo" class="me-2" style="height: 80px;" />
                     <!-- <h1 class="h5 mb-0 d-none d-md-inline">Vegas Pizza</h1> -->
                 </div>
 
@@ -50,9 +50,25 @@
     </div>
 
     <!-- Filtros por categoría -->
-    <div class="container text-center my-2" id="filtros-categorias">
-        <!-- Botones generados dinámicamente -->
+    <!-- <div class="container text-center my-2" id="filtros-categorias"> -->
+    <!-- Botones generados dinámicamente -->
+    <!-- </div> -->
+
+    <div class="container my-3">
+        <div class="categoria-carousel-wrapper position-relative">
+            <button id="btn-prev" class="btn btn-dark position-absolute start-0 top-50 translate-middle-y z-1"
+                style="z-index:2;">◀</button>
+
+            <div class="container text-center overflow-auto" id="filtros-categorias"
+                style="white-space: nowrap; scroll-behavior: smooth;">
+                <!-- Ítems generados dinámicamente -->
+            </div>
+
+            <button id="btn-next" class="btn btn-dark position-absolute end-0 top-50 translate-middle-y z-1"
+                style="z-index:2;">▶</button>
+        </div>
     </div>
+
 
     <!-- Catálogo generado dinámicamente -->
     <main class="container my-4" id="catalogo">

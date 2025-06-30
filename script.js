@@ -39,12 +39,56 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Generar botones de categoría
   const categorias = ["Todas", ...data.map((c) => c.nombre)];
+  // filtros.innerHTML = categorias
+  //   .map(
+  //     (cat) =>
+  //       `<button class="btn btn-outline-danger mx-1 my-1" data-cat="${cat}">${cat}</button>`
+  //   )
+  //   .join("");
+
+  // Generar carrusel de categorías
+  const iconosCategoria = {
+    Todas: "📋",
+    Pizzas: "🍕",
+    "Pizza de 1 Ingrediente": "🧀",
+    Calzones: "🌯",
+    Lasañas: "🍝",
+    Alitas: "🍗",
+    Bebidas: "🥤",
+  };
+
+  // Renderizar el carrusel con íconos
   filtros.innerHTML = categorias
     .map(
-      (cat) =>
-        `<button class="btn btn-outline-danger mx-1 my-1" data-cat="${cat}">${cat}</button>`
+      (cat) => `
+      <div class="categoria-item${
+        cat === "Todas" ? " active" : ""
+      }" data-cat="${cat}">
+        <span class="categoria-icon">${iconosCategoria[cat] || "🍽️"}</span>
+        <div class="categoria-text">${cat}</div>
+      </div>
+    `
     )
     .join("");
+
+  // Manejo de clics en las categorías
+  filtros.addEventListener("click", (e) => {
+    const item = e.target.closest(".categoria-item");
+    if (item) {
+      categoriaSeleccionada = item.dataset.cat.trim();
+
+      // Activar el ítem seleccionado
+      filtros
+        .querySelectorAll(".categoria-item")
+        .forEach((el) => el.classList.remove("active"));
+      item.classList.add("active");
+
+      // Renderizar catálogo filtrado
+      renderCatalogo(buscador.value.trim().toLowerCase());
+    }
+  });
+
+  // Fin carrusel de categorías
 
   filtros.addEventListener("click", (e) => {
     if (e.target.tagName === "BUTTON") {
@@ -135,7 +179,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const categoriasFiltradas = data.filter((c) =>
       categoriaSeleccionada === "Todas"
         ? true
-        : c.nombre === categoriaSeleccionada
+        : c.nombre.trim() === categoriaSeleccionada
     );
 
     categoriasFiltradas.forEach((categoria) => {
@@ -217,6 +261,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   }
+
+  document.getElementById("btn-prev").addEventListener("click", () => {
+    filtros.scrollBy({ left: -200, behavior: "smooth" });
+  });
+  document.getElementById("btn-next").addEventListener("click", () => {
+    filtros.scrollBy({ left: 200, behavior: "smooth" });
+  });
 
   renderCatalogo();
 });
