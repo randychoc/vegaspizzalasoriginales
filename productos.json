@@ -1,0 +1,272 @@
+[
+  {
+    "categoria": "Pizza de 1 Ingrediente",
+    "subcategoria": "Grande",
+    "nombre": "Pizza de Carne",
+    "descripcion": "12 porciones",
+    "promocion": "no",
+    "precio": "60",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Pizza de 1 Ingrediente",
+    "subcategoria": "Grande",
+    "nombre": "Pizza de Pepperoni",
+    "descripcion": "12 porciones",
+    "promocion": "no",
+    "precio": "60",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Pizza de 1 Ingrediente",
+    "subcategoria": "Grande",
+    "nombre": "Pizza de Jamón",
+    "descripcion": "12 porciones",
+    "promocion": "no",
+    "precio": "60",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Pizza de 1 Ingrediente",
+    "subcategoria": "Mediana",
+    "nombre": "Pizza de Carne",
+    "descripcion": "8 porciones",
+    "promocion": "no",
+    "precio": "60",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Pizza de 1 Ingrediente",
+    "subcategoria": "Mediana",
+    "nombre": "Pizza de Pepperoni",
+    "descripcion": "8 porciones",
+    "promocion": "no",
+    "precio": "60",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Pizza de 1 Ingrediente",
+    "subcategoria": "Mediana",
+    "nombre": "Pizza de Jamón",
+    "descripcion": "8 porciones",
+    "promocion": "no",
+    "precio": "60",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Pizzas",
+    "subcategoria": "Grande",
+    "nombre": "Pizza 5 Carnes",
+    "descripcion": "Salsa de tomate, carne, pepperoni, jamón, salami, salchicha italiana y queso mozarela.",
+    "promocion": "no",
+    "precio": "85",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Pizzas",
+    "subcategoria": "Grande",
+    "nombre": "Pizza Toscana",
+    "descripcion": "Salsa de tomate, pepperoni, jamón, champiñones, chile pimiento y queso mozarela.",
+    "promocion": "no",
+    "precio": "85",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Pizzas",
+    "subcategoria": "Grande",
+    "nombre": "Pizza Chapina",
+    "descripcion": "Base de frijol, carne, cebolla y queso mozarela.",
+    "promocion": "no",
+    "precio": "70",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Pizzas",
+    "subcategoria": "Grande",
+    "nombre": "Pizza de Pepperoni con Orilla de Queso",
+    "descripcion": "",
+    "promocion": "no",
+    "precio": "65",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Pizzas",
+    "subcategoria": "Mediana",
+    "nombre": "3 Pizzas Medianas",
+    "descripcion": "Tres pizzas medianas de un ingrediente: carne, jamón o pepperoni.",
+    "promocion": "si",
+    "precio": "110",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Pizzas",
+    "subcategoria": "Personal",
+    "nombre": "Pizza Margarita",
+    "descripcion": "Queso mozzarella y albahaca",
+    "promocion": "no",
+    "precio": "25",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Pizzas",
+    "subcategoria": "Mediana",
+    "nombre": "Pizza Pepperoni",
+    "descripcion": "Pepperoni y queso fundido",
+    "promocion": "si",
+    "precio": "45",
+    "precio_descuento": "35",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Pizzas",
+    "subcategoria": "Grande",
+    "nombre": "Pizza Hawaiana",
+    "descripcion": "Jamón y piña sobre queso derretido.",
+    "promocion": "no",
+    "precio": "60",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Calzones",
+    "subcategoria": "",
+    "nombre": "Calzone Clásico",
+    "descripcion": "Jamón, queso y tomate.",
+    "promocion": "no",
+    "precio": "40",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Calzones",
+    "subcategoria": "",
+    "nombre": "Calzone de Carne",
+    "descripcion": "Relleno de carne y especias",
+    "promocion": "si",
+    "precio": "45",
+    "precio_descuento": "38",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Calzones",
+    "subcategoria": "",
+    "nombre": "Calzone Nutella Banano",
+    "descripcion": "",
+    "promocion": "no",
+    "precio": "20",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Calzones",
+    "subcategoria": "",
+    "nombre": "Calzone Nutella Fresas",
+    "descripcion": "",
+    "promocion": "no",
+    "precio": "20",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Calzones",
+    "subcategoria": "",
+    "nombre": "Calzone Nutella",
+    "descripcion": "",
+    "promocion": "no",
+    "precio": "20",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Lasañas",
+    "subcategoria": "",
+    "nombre": "Lasaña de 1 libra y media + coca cola",
+    "descripcion": "Pasta, salsa boloñesa, carne y queso mozarela.",
+    "promocion": "no",
+    "precio": "40",
+    "precio_descuento": "38",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Lasañas",
+    "subcategoria": "",
+    "nombre": "Lasaña Familiar 6 libras de lasaña + 10 panes",
+    "descripcion": "Pasta, salsa boloñesa, carne y queso mozarela.",
+    "promocion": "no",
+    "precio": "100",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Alitas",
+    "subcategoria": "9 unidades",
+    "nombre": "Alitas",
+    "descripcion": "Bufalo o Barbacoa.",
+    "promocion": "si",
+    "precio": "45",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Alitas",
+    "subcategoria": "20 unidades",
+    "nombre": "Alitas",
+    "descripcion": "Bufalo o Barbacoa.",
+    "promocion": "si",
+    "precio": "90",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Bebidas",
+    "subcategoria": "1.5 Litros",
+    "nombre": "Coca Cola",
+    "descripcion": "",
+    "promocion": "no",
+    "precio": "15",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Bebidas",
+    "subcategoria": "Desechable",
+    "nombre": "Coca Cola",
+    "descripcion": "",
+    "promocion": "no",
+    "precio": "5",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Bebidas",
+    "subcategoria": "Lata",
+    "nombre": "Gaseosa",
+    "descripcion": "",
+    "promocion": "no",
+    "precio": "5",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  },
+  {
+    "categoria": "Bebidas",
+    "subcategoria": "",
+    "nombre": "Té Frío",
+    "descripcion": "",
+    "promocion": "no",
+    "precio": "10",
+    "precio_descuento": "",
+    "imagen": "pizza-margarita.jpg"
+  }
+]

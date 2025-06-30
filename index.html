@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vegas Pizza - Catálogo</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <!-- <header class="bg-danger text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="h3 mb-0">🍕 Vegas Pizza</h1>
+        </div>
+    </header> -->
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <div class="row align-items-center text-center text-md-start">
+                <!-- Logo izquierda -->
+                <div class="col-12 col-md-4 mb-2 mb-md-0 d-flex justify-content-center justify-content-md-start">
+                    <img src="img/logoTemporal.png" alt="Vegas Pizza Logo" class="me-2" style="height: 80px;" />
+                    <!-- <h1 class="h5 mb-0 d-none d-md-inline">Vegas Pizza</h1> -->
+                </div>
+
+                <!-- Teléfono centro -->
+                <div class="col-12 col-md-4 mb-2 mb-md-0 d-flex justify-content-center">
+                    <span class="fw-bold h4">📞 4770-7384</span>
+                </div>
+
+                <!-- Dirección derecha -->
+                <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
+                    <span class="fw-bold h4">📍 5a Avenida 3-45 Zona 1, Ciudad</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Buscador -->
+    <div class="container my-4 text-center">
+        <input type="text" id="buscador" class="form-control" placeholder="Buscar pizza, calzone o lasaña..." />
+    </div>
+
+    <!-- Filtros por categoría -->
+    <div class="container text-center my-2" id="filtros-categorias">
+        <!-- Botones generados dinámicamente -->
+    </div>
+
+    <!-- Catálogo generado dinámicamente -->
+    <main class="container my-4" id="catalogo">
+        <!-- Aquí se cargan las secciones por JS -->
+    </main>
+
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/50247707384?text=Buen+día+Vegas+Pizza%2C+quiero+hacer+un+pedido.&type=phone_number&app_absent=0"
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <img src="img/wa_compressed_.jpg" alt="WhatsApp" />
+    </a>
+
+    <!-- Footer -->
+    <footer class="text-center bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <p class="mb-1">Lunes a Domingo, 10:00 AM - 8:00 PM</p>
+            <p class="mb-1">13 calle B 6-81 Zona 3, Ciudad de Guatemala</p>
+            <p class="mb-0">© 2025 Vegas Pizza</p>
+        </div>
+    </footer>
+
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
