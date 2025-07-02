@@ -61,13 +61,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       <button class="btn categoria-icono">
         ${icono}
       </button>
-      <div class="fw-bold mt-1 text-white small">${cat}</div>
+      <div class="fw-light mt-1 text-white small">${cat}</div>
     </div>
   `;
     })
     .join("");
-
-  actualizarFlechasCarrusel();
 
   filtros.addEventListener("click", (e) => {
     const target = e.target.closest(".categoria-item");
@@ -80,22 +78,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderCatalogo();
     }
   });
-
-  btnNext.addEventListener("click", () => {
-    filtros.scrollLeft += 200;
-  });
-
-  btnPrev.addEventListener("click", () => {
-    filtros.scrollLeft -= 200;
-  });
-
-  function actualizarFlechasCarrusel() {
-    const hayOverflow = filtros.scrollWidth > filtros.clientWidth;
-    btnPrev.style.display = hayOverflow ? "block" : "none";
-    btnNext.style.display = hayOverflow ? "block" : "none";
-  }
-
-  window.addEventListener("resize", actualizarFlechasCarrusel);
 
   function renderCatalogo() {
     catalogo.innerHTML = "";
@@ -116,7 +98,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const seccion = document.createElement("section");
       seccion.classList.add("mb-5");
-      seccion.innerHTML = `<h2 class="text-danger fw-bold">${categoria.nombre}</h2>`;
+      seccion.innerHTML = `<h2 class="titulos">${categoria.nombre}</h2>`;
       catalogo.appendChild(seccion);
 
       let primeraSubcat = true;
@@ -124,12 +106,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       Object.entries(productosPorSubcat).forEach(([subcat, productos]) => {
         if (!primeraSubcat) {
           const separador = document.createElement("hr");
-          separador.className = "subcategoria-separador my-4";
+          separador.className = "subcategoria-separador";
           seccion.appendChild(separador);
         }
 
         const subcatTitulo = subcat
-          ? `<h4 class="fw-bold mt-4" style="color:#ddd;">${subcat}</h4>`
+          ? `<h4 class="subtitulos" >${subcat}</h4>`
           : "";
 
         const fila = document.createElement("div");

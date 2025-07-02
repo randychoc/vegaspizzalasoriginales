@@ -3,11 +3,11 @@
   --colorDarkGrey: #444444;
   --colorRed: #da0037;
   --colorLightGrey: #ededed;
-  --colorWhatsApp: var(--colorWhatsApp);
+  --colorWhatsApp: #25d366;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   /* background-color: #fdfdfd; */
   color: var(--colorDarkGrey);
@@ -20,14 +20,25 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed; /* Hace que el fondo no se mueva al hacer scroll */
-  /* color: var(--colorLightGrey); */
+}
+
+.titulos {
+  color: var(--colorRed);
+  font-weight: bold;
+  text-align: left;
+  margin: 1rem 0;
+}
+
+.subtitulos {
+  color: var(--colorLightGrey);
+  font-weight: bold;
+  text-align: left;
+  margin: 1rem 0;
 }
 
 header {
-  background-color: var(--colorDarkGrey);
   color: var(--colorLightGrey);
-  padding: 1rem;
-  text-align: center;
+  padding: 2rem 2rem 1rem 2rem;
   /* position: sticky; */
   top: 0;
   z-index: 900;
@@ -144,7 +155,7 @@ footer {
 
 .subcategoria-separador {
   border: none;
-  border-top: 3px dashed var(--colorRed); /* color rojo Bootstrap */
+  border-top: 3px double var(--colorRed); /* color rojo Bootstrap */
   width: 100%;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -172,7 +183,7 @@ footer {
   margin-right: 0.5rem;
 }
 .precio-descuento {
-  color: green;
+  color: var(--colorWhatsApp);
   font-weight: bold;
   font-size: 1.1rem;
 }
@@ -231,49 +242,67 @@ footer {
   margin: 10px;
 }
 
+/* Indicador visual en los extremos del carrusel */
 .categoria-carousel-wrapper {
-  position: sticky;
-  overflow: hidden;
+  position: relative;
   background-color: var(--colorBlack);
   border-radius: 25px;
-  margin: 0;
-  padding: 5px 0px 10px 0px;
-  width: 100%;
+  padding: 10px 30px 10px 30px;
+  overflow: hidden;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+/* Gradientes en los extremos */
+.categoria-carousel-wrapper::before,
+.categoria-carousel-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 35px;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.categoria-carousel-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--colorRed), transparent);
+}
+
+.categoria-carousel-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--colorWhatsApp), transparent);
 }
 
 #filtros-categorias {
-  /* display: flex; */
-  /* gap: 1rem; */
-  /* padding: 0; */
-  /* overflow-x: auto; */
-  /* scrollbar-width: none; Firefox */
-  /* cursor: grab; */
-  scrollbar-width: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: var(--colorDarkGrey) var(--colorBlack);
 }
-#filtros-categorias:active {
+/* #filtros-categorias:active {
   cursor: grabbing;
-}
+} */
 #filtros-categorias::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  /* display: none; Chrome/Safari */
+  height: 8px;
+}
+#filtros-categorias::-webkit-scrollbar-thumb {
+  background-color: var(--colorWhatsApp);
+  border-radius: 4px;
+}
+#filtros-categorias::-webkit-scrollbar-track {
+  background-color: var(--colorWhatsApp);
 }
 
 .categoria-item {
-  /* flex: 0 0 auto;
-  width: 100px;
-  text-align: center;
-  scroll-snap-align: start;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: #fff;
-  transition: border 0.3s ease, background 0.3s ease;
-  cursor: pointer; */
-
   display: inline-block;
   text-align: center;
   justify-content: center;
-  margin: 20px 10px 10px 10px;
-  /* background-color: #fff; */
+  margin: 5px 12px 5px 13px;
   color: var(--colorDarkGrey);
   padding: 10px;
   border-radius: 8px;
@@ -284,35 +313,15 @@ footer {
 
 .categoria-item:hover,
 .categoria-item.active {
-  border-color: var(--colorRed);
-  background-color: #f8d7da; /* #f46207 */
+  /* border-color: var(--colorLightGrey); */
+  /* border-width: 1px; */
+  /* border-style: solid; */
+  background-color: var(--colorRed);
 }
 
 .categoria-icono {
-  width: 30px;
+  width: auto;
   height: 30px;
   font-size: 24px;
   line-height: 1;
-}
-
-#btn-prev,
-#btn-next {
-  background-color: var(--colorRed);
-  border: none;
-  color: var(--colorLightGrey);
-  font-size: 1.25rem;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: none; /* inicialmente ocultas */
-  position: absolute;
-  transform: translateY(-50%);
-  top: 50%;
-  z-index: 700;
-}
-#btn-prev {
-  left: 0;
-}
-#btn-next {
-  right: 0;
 }
