@@ -14,27 +14,20 @@
 </head>
 
 <body>
-
     <!-- Header -->
-    <!-- <header class="bg-danger text-white py-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <h1 class="h3 mb-0">🍕 Vegas Pizza</h1>
-        </div>
-    </header> -->
-    <header class="bg-dark text-white py-3">
+    <header class="text-white py-3">
         <div class="container">
             <div class="row align-items-center text-center text-md-start">
                 <!-- Logo izquierda -->
                 <div class="col-12 col-md-4 mb-2 mb-md-0 d-flex justify-content-center justify-content-md-start">
-                    <img src="img/vegasPizzaLogo.png" alt="Vegas Pizza Logo" class="me-2" style="height: 80px;" />
-                    <!-- <h1 class="h5 mb-0 d-none d-md-inline">Vegas Pizza</h1> -->
+                    <img src="img/vegasPizzaLogo.png" alt="Vegas Pizza Logo" class="me-2"
+                        style="height: 80px; border-radius: 25px; " />
+                    <h1 class="fw-bold h2 mt-2">Vegas Pizza Las Originales</h1>
                 </div>
-
                 <!-- Teléfono centro -->
                 <div class="col-12 col-md-4 mb-2 mb-md-0 d-flex justify-content-center">
                     <span class="fw-bold h4">📞 4770-7384</span>
                 </div>
-
                 <!-- Dirección derecha -->
                 <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
                     <span class="fw-bold h4">📍 5a Avenida 3-45 Zona 1, Ciudad</span>
@@ -43,41 +36,31 @@
         </div>
     </header>
 
+    <!-- Carrusel de Categorías -->
+    <div class="carruselContainer">
+        <div class="categoria-carousel-wrapper">
+            <button id="btn-prev"
+                class="btn btn-dark position-absolute start-0 top-50 translate-middle-y z-1">◀</button>
 
-    <!-- Buscador -->
-    <div class="container my-4 text-center">
-        <input type="text" id="buscador" class="form-control" placeholder="Buscar pizza, calzone o lasaña..." />
-    </div>
-
-    <!-- Filtros por categoría -->
-    <!-- <div class="container text-center my-2" id="filtros-categorias"> -->
-    <!-- Botones generados dinámicamente -->
-    <!-- </div> -->
-
-    <div class="container my-3">
-        <div class="categoria-carousel-wrapper position-relative">
-            <button id="btn-prev" class="btn btn-dark position-absolute start-0 top-50 translate-middle-y z-1"
-                style="z-index:2;">◀</button>
-
-            <div class="container text-center overflow-auto" id="filtros-categorias"
+            <div class="text-center overflow-auto" id="filtros-categorias"
                 style="white-space: nowrap; scroll-behavior: smooth;">
-                <!-- Ítems generados dinámicamente -->
+                <!-- Categorías generadas por JS -->
             </div>
 
-            <button id="btn-next" class="btn btn-dark position-absolute end-0 top-50 translate-middle-y z-1"
-                style="z-index:2;">▶</button>
+            <button id="btn-next" class="btn btn-dark position-absolute end-0 top-50 translate-middle-y z-1">▶</button>
+
+            <!-- <div class="text-center text-white mt-1 mb-1">
+                <span class="fw-bold">⬅️ Desliza para ver más ➡️ </span>
+            </div> -->
         </div>
     </div>
 
-
     <!-- Catálogo generado dinámicamente -->
-    <main class="container my-4" id="catalogo">
-        <!-- Aquí se cargan las secciones por JS -->
-    </main>
+    <main class="container my-4" id="catalogo"></main>
 
     <!-- WhatsApp flotante -->
-    <a href="https://wa.me/50247707384?text=Buen+día+Vegas+Pizza%2C+quiero+hacer+un+pedido.&type=phone_number&app_absent=0"
-        class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/50247707384?text=Buen+d%C3%ADa+Vegas+Pizza%2C+quiero+hacer+un+pedido.&type=phone_number&app_absent=0"
+        class="whatsapp-float" target="_blank">
         <img src="img/wa_compressed_.jpg" alt="WhatsApp" />
     </a>
 
@@ -90,8 +73,6 @@
         </div>
     </footer>
 
-
-    <!-- JS -->
     <script src="script.js"></script>
 </body>
 
