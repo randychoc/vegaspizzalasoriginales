@@ -3,81 +3,85 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" href="img/vegasPizzaLogo.png" type="image/x-icon" />
     <title>Vegas Pizza - Catálogo</title>
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Estilos personalizados -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-
     <!-- Header -->
-    <!-- <header class="bg-danger text-white py-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <h1 class="h3 mb-0">🍕 Vegas Pizza</h1>
-        </div>
-    </header> -->
-    <header class="bg-dark text-white py-3">
+    <header class="text-white">
         <div class="container">
             <div class="row align-items-center text-center text-md-start">
                 <!-- Logo izquierda -->
-                <div class="col-12 col-md-4 mb-2 mb-md-0 d-flex justify-content-center justify-content-md-start">
-                    <img src="img/vegasPizzaLogo.png" alt="Vegas Pizza Logo" class="me-2" style="height: 80px;" />
-                    <!-- <h1 class="h5 mb-0 d-none d-md-inline">Vegas Pizza</h1> -->
+                <div class="col-12 col-md-6 d-flex">
+                    <div class="row">
+                        <div class="col">
+                            <img src="img/vegasPizzaLogo.png" alt="Vegas Pizza Logo" class="me-2"
+                                style="height: 80px; border-radius: 25px; " />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h1 class="fw-bold mt-2">Vegas Pizza Las Originales</h1>
+                    </div>
                 </div>
-
-                <!-- Teléfono centro -->
-                <div class="col-12 col-md-4 mb-2 mb-md-0 d-flex justify-content-center">
-                    <span class="fw-bold h4">📞 4770-7384</span>
-                </div>
-
-                <!-- Dirección derecha -->
-                <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
-                    <span class="fw-bold h4">📍 5a Avenida 3-45 Zona 1, Ciudad</span>
+                <div class="col-12 col-md-6 d-flex">
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <span class="fw-bold h5" style="color: #0d6efd;">📞 +502 55727562
+                            </span>
+                        </div>
+                        <!-- Dirección derecha -->
+                        <div class="col-12">
+                            <span class="fw-bold h5">📍 5a Avenida 3-45 Zona 1, Ciudad de Guatemala</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- <div class="envio-banner text-center fw-bold">
+        🚚 ¡Servicio a domicilio GRATIS en zona 3, en áreas cercanas a la Pizzería! (consumo mínimo Q40) 🎉
+        <img src="img/repartidor.png" alt="Logo Las Vegas" class="adomicilioImage" style="height: 50px; width: 50px;">
+        ¡Servicio a domicilio! (consumo mínimo Q40)
+        <img src="img/repartidor.png" alt="Logo Las Vegas" class="adomicilioImage" style="height: 50px; width: 50px;">
+    </div> -->
 
-    <!-- Buscador -->
-    <div class="container my-4 text-center">
-        <input type="text" id="buscador" class="form-control" placeholder="Buscar pizza, calzone o lasaña..." />
-    </div>
-
-    <!-- Filtros por categoría -->
-    <!-- <div class="container text-center my-2" id="filtros-categorias"> -->
-    <!-- Botones generados dinámicamente -->
-    <!-- </div> -->
-
-    <div class="container my-3">
-        <div class="categoria-carousel-wrapper position-relative">
-            <button id="btn-prev" class="btn btn-dark position-absolute start-0 top-50 translate-middle-y z-1"
-                style="z-index:2;">◀</button>
-
-            <div class="container text-center overflow-auto" id="filtros-categorias"
+    <!-- Carrusel de Categorías -->
+    <div class="carruselContainer">
+        <div class="categoria-carousel-wrapper">
+            <div class="text-center overflow-auto" id="filtros-categorias"
                 style="white-space: nowrap; scroll-behavior: smooth;">
-                <!-- Ítems generados dinámicamente -->
+                <!-- Categorías generadas por JS -->
             </div>
-
-            <button id="btn-next" class="btn btn-dark position-absolute end-0 top-50 translate-middle-y z-1"
-                style="z-index:2;">▶</button>
         </div>
     </div>
 
-
     <!-- Catálogo generado dinámicamente -->
-    <main class="container my-4" id="catalogo">
-        <!-- Aquí se cargan las secciones por JS -->
-    </main>
+    <main class="container my-4" id="catalogo"></main>
+
+    <!-- Banner de Envío Gratis -->
+    <!-- <div class="envio-sticker">
+        <img src="img/repartidor.png" alt="Logo Las Vegas" class="adomicilioImage" style="height: 50px; width: 50px;">
+        Servicio a domicilio
+        <img src="img/entrega.png" alt="Logo Las Vegas" class="adomicilioImage" style="height: 50px; width: 50px;">
+    </div> -->
 
     <!-- WhatsApp flotante -->
-    <a href="https://wa.me/50247707384?text=Buen+día+Vegas+Pizza%2C+quiero+hacer+un+pedido.&type=phone_number&app_absent=0"
-        class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/50255727562?text=Buen+d%C3%ADa+Vegas+Pizza%2C+quiero+hacer+un+pedido.&type=phone_number&app_absent=0"
+        class="whatsapp-float" target="_blank">
         <img src="img/wa_compressed_.jpg" alt="WhatsApp" />
     </a>
 
@@ -85,13 +89,10 @@
     <footer class="text-center bg-dark text-light py-4 mt-5">
         <div class="container">
             <p class="mb-1">Lunes a Domingo, 10:00 AM - 8:00 PM</p>
-            <p class="mb-1">13 calle B 6-81 Zona 3, Ciudad de Guatemala</p>
             <p class="mb-0">© 2025 Vegas Pizza</p>
         </div>
     </footer>
 
-
-    <!-- JS -->
     <script src="script.js"></script>
 </body>
 

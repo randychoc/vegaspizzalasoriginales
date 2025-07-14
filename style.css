@@ -1,8 +1,16 @@
+:root {
+  --colorBlack: #171717;
+  --colorDarkGrey: #444444;
+  --colorRed: #da0037;
+  --colorLightGrey: #ededed;
+  --colorWhatsApp: #25d366;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   /* background-color: #fdfdfd; */
-  color: #333;
+  color: var(--colorDarkGrey);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -12,17 +20,53 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed; /* Hace que el fondo no se mueva al hacer scroll */
-  /* color: white; */
+}
+
+.titulos {
+  color: var(--colorRed);
+  font-weight: bold;
+  text-align: left;
+  margin: 1rem 0;
+}
+
+.subtitulos {
+  color: var(--colorLightGrey);
+  font-weight: bold;
+  text-align: left;
+  margin: 1rem 0;
 }
 
 header {
-  background-color: #d62828;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  position: sticky;
+  color: var(--colorLightGrey);
+  padding: 2rem 2rem 1rem 2rem;
+  /* position: sticky; */
   top: 0;
-  z-index: 1000;
+  z-index: 900;
+}
+
+.envio-banner {
+  background-color: #f4ce14;
+  color: var(--colorBlack);
+  padding: 10px;
+  font-size: 1.1rem;
+  z-index: 950;
+  position: relative;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.envio-sticker {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background-color: #f4ce14;
+  color: var(--colorBlack);
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 900;
 }
 
 main {
@@ -43,7 +87,7 @@ footer {
 }
 
 .pizza-card {
-  background: white;
+  background: var(--colorLightGrey);
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -65,19 +109,19 @@ footer {
 
 .pizza-card h2 {
   margin: 0.5rem 0;
-  color: #d62828;
+  color: var(--colorRed);
 }
 
 .pizza-card .precio {
   font-weight: bold;
-  color: #333;
+  color: var(--colorDarkGrey);
   display: block;
   margin-top: 0.5rem;
 }
 
 /* Tarjetas de producto */
 .producto-card {
-  border: 1px solid #ddd;
+  border: 1px solid var(--colorLightGrey);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -86,7 +130,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #ddd;
+  background-color: var(--colorLightGrey);
 }
 .producto-card:hover {
   transform: scale(1.02);
@@ -106,7 +150,7 @@ footer {
   width: 90%;
   max-width: 400px;
   padding: 0.75rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--colorLightGrey);
   border-radius: 8px;
   font-size: 1rem;
 }
@@ -117,14 +161,14 @@ footer {
 
 .categoria h2 {
   margin-bottom: 0.5rem;
-  color: #d62828;
+  color: var(--colorRed);
   text-align: left;
   padding-left: 1rem;
 }
 
 .subcategoria {
   margin: 1rem 0 0.5rem 1rem;
-  color: #555;
+  color: var(--colorDarkGrey);
 }
 
 .pizza-grid {
@@ -136,7 +180,7 @@ footer {
 
 .subcategoria-separador {
   border: none;
-  border-top: 3px dashed #dc3545; /* color rojo Bootstrap */
+  border-top: 3px double var(--colorRed); /* color rojo Bootstrap */
   width: 100%;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -146,8 +190,8 @@ footer {
 
 /* Promoción */
 .promo-badge {
-  background-color: red;
-  color: white;
+  background-color: var(--colorRed);
+  color: var(--colorLightGrey);
   font-weight: bold;
   padding: 2px 8px;
   font-size: 0.75rem;
@@ -164,7 +208,7 @@ footer {
   margin-right: 0.5rem;
 }
 .precio-descuento {
-  color: green;
+  color: var(--colorWhatsApp);
   font-weight: bold;
   font-size: 1.1rem;
 }
@@ -176,7 +220,7 @@ footer {
   right: 20px;
   width: 60px;
   height: 60px;
-  z-index: 999;
+  z-index: 800;
 }
 .whatsapp-float img {
   width: 100%;
@@ -189,8 +233,8 @@ footer {
 
 /* Botón WhatsApp dentro de la tarjeta */
 .btn-whatsapp {
-  background-color: #25d366;
-  color: white;
+  background-color: var(--colorWhatsApp);
+  color: var(--colorLightGrey);
   border: none;
   padding: 0.5rem;
   text-align: center;
@@ -201,13 +245,13 @@ footer {
 }
 .btn-whatsapp:hover {
   background-color: #1ebe5b;
-  color: white;
+  color: var(--colorLightGrey);
 }
 
 /* Botón WhatsApp dentro de la tarjeta */
 .producto-card .btn-whatsapp {
-  background-color: #25d366;
-  color: white;
+  background-color: var(--colorWhatsApp);
+  color: var(--colorLightGrey);
   border: none;
   padding: 0.5rem;
   text-align: center;
@@ -216,79 +260,93 @@ footer {
   text-decoration: none;
 }
 
-.categoria-carousel {
-  gap: 1rem;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 10px;
+.carruselContainer {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin: 10px;
 }
 
-.categoria-item {
-  flex: 0 0 auto;
-  width: 100px;
-  text-align: center;
-  scroll-snap-align: start;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: #fff;
-  transition: border 0.3s ease, background 0.3s ease;
-  cursor: pointer;
-}
-
-.categoria-item:hover,
-.categoria-item.active {
-  border-color: #dc3545;
-  background-color: #f8d7da;
-}
-
-.categoria-icon {
-  font-size: 2rem;
-  display: block;
-}
-
-.categoria-text {
-  margin-top: 5px;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
+/* Indicador visual en los extremos del carrusel */
 .categoria-carousel-wrapper {
   position: relative;
-  padding: 0 2rem;
+  background-color: var(--colorBlack);
+  border-radius: 25px;
+  padding: 10px 30px 10px 30px;
+  overflow: hidden;
+  max-width: 1060px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+/* Gradientes en los extremos */
+.categoria-carousel-wrapper::before,
+.categoria-carousel-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 35px;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.categoria-carousel-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--colorRed), transparent);
+}
+
+.categoria-carousel-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--colorWhatsApp), transparent);
 }
 
 #filtros-categorias {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem 0;
   overflow-x: auto;
-  scrollbar-width: none; /* Firefox */
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: var(--colorDarkGrey) var(--colorBlack);
 }
+/* #filtros-categorias:active {
+  cursor: grabbing;
+} */
 #filtros-categorias::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  /* display: none; Chrome/Safari */
+  height: 8px;
+}
+#filtros-categorias::-webkit-scrollbar-thumb {
+  background-color: var(--colorWhatsApp);
+  border-radius: 4px;
+}
+#filtros-categorias::-webkit-scrollbar-track {
+  background-color: var(--colorWhatsApp);
 }
 
 .categoria-item {
   display: inline-block;
-  flex: 0 0 auto;
-  width: 80px;
   text-align: center;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 10px;
-  background-color: #f8f9fa;
-  transition: all 0.3s ease;
+  justify-content: center;
+  margin: 5px 12px 5px 13px;
+  color: var(--colorDarkGrey);
+  padding: 10px;
+  border-radius: 8px;
+  transform: scale(1.1);
+  transition: border 0.3s ease, background 0.3s ease;
+  background-color: var(--colorDarkGrey);
 }
+
 .categoria-item:hover,
 .categoria-item.active {
-  background-color: #dc3545;
-  color: white;
+  /* border-color: var(--colorLightGrey); */
+  /* border-width: 1px; */
+  /* border-style: solid; */
+  background-color: var(--colorRed);
 }
-.categoria-icon {
-  font-size: 2rem;
-  display: block;
-}
-.categoria-text {
-  font-size: 0.8rem;
-  margin-top: 0.25rem;
-  font-weight: bold;
+
+.categoria-icono {
+  width: auto;
+  height: 30px;
+  font-size: 24px;
+  line-height: 1;
 }
