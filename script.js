@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const catalogo = document.getElementById("catalogo");
   const filtros = document.getElementById("filtros-categorias");
-  const btnPrev = document.getElementById("btn-prev");
-  const btnNext = document.getElementById("btn-next");
+  const scrollInit = document.getElementById("scrollInit");
 
   // opción 1 local
   const response = await fetch("productos.json");
@@ -74,6 +73,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         .forEach((el) => el.classList.remove("activa"));
       target.classList.add("activa");
       renderCatalogo();
+      scrollInit.scrollIntoView({ behavior: "smooth" });
     }
   });
 

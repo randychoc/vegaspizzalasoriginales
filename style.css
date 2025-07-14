@@ -44,29 +44,28 @@ header {
   z-index: 900;
 }
 
-.envio-banner {
-  background-color: #f4ce14;
-  color: var(--colorBlack);
-  padding: 10px;
-  font-size: 1.1rem;
-  z-index: 950;
-  position: relative;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+.callAction {
+  color: #0d6efd;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
 }
 
-.envio-sticker {
-  position: fixed;
-  bottom: 30px;
-  left: 30px;
+.envio-banner {
+  position: relative;
   background-color: #f4ce14;
   color: var(--colorBlack);
-  padding: 10px 15px;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 0.95rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 900;
+  border-radius: 25px;
+  max-width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  font-size: 1rem;
+  z-index: 950;
+}
+
+.adomicilioImage {
+  height: 30px;
+  width: 30px;
 }
 
 main {
@@ -338,9 +337,6 @@ footer {
 
 .categoria-item:hover,
 .categoria-item.active {
-  /* border-color: var(--colorLightGrey); */
-  /* border-width: 1px; */
-  /* border-style: solid; */
   background-color: var(--colorRed);
 }
 
