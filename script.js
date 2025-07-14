@@ -5,11 +5,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   const btnNext = document.getElementById("btn-next");
 
   // opción 1 local
-  // const response = await fetch("productos.json");
+  const response = await fetch("productos.json");
   // opción 2 desde Google Sheets
-  const response = await fetch(
-    "https://opensheet.elk.sh/1YNBL2a2AGZOSFVIfJ9hVJQkcR0ZcMz_0KNYxBu1AV1g/VPP"
-  );
+  // const response = await fetch("https://opensheet.elk.sh/1YNBL2a2AGZOSFVIfJ9hVJQkcR0ZcMz_0KNYxBu1AV1g/VPP");
   const rawData = await response.json();
 
   const data = [];
