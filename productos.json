@@ -33,6 +33,94 @@
     "mostrarProducto": "si"
   },
   {
+    "categoria": "Pizza de Especialidad",
+    "subcategoria": "Grande",
+    "nombre": "Pizza 5 Carnes - 12 porciones",
+    "descripcion": "Salsa de tomate, carne, pepperoni, jamón, salami, salchicha italiana y queso mozzarella. ",
+    "promocion": "no",
+    "precio": "85",
+    "precio_descuento": "",
+    "imagen": "pizza5Carnes.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "categoria": "Pizza de Especialidad",
+    "subcategoria": "Grande",
+    "nombre": "Pizza Toscana - 12 porciones",
+    "descripcion": "Salsa de tomate, pepperoni, jamón, champiñones, chile pimiento y queso mozzarella. ",
+    "promocion": "no",
+    "precio": "85",
+    "precio_descuento": "",
+    "imagen": "pizzaToscana.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "categoria": "Pizza de Especialidad",
+    "subcategoria": "Grande",
+    "nombre": "Pizza Chapina - 12 porciones",
+    "descripcion": "Base de frijol, carne, cebolla y queso mozzarella.",
+    "promocion": "no",
+    "precio": "70",
+    "precio_descuento": "",
+    "imagen": "pizzaChapina.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "categoria": "Pizza de Especialidad",
+    "subcategoria": "Grande",
+    "nombre": "Pizza Hawaiana - 12 porciones",
+    "descripcion": "Jamón y piña sobre queso derretido.",
+    "promocion": "no",
+    "precio": "65",
+    "precio_descuento": "",
+    "imagen": "pizzaHawaiana.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "categoria": "Pizza de 1 Ingrediente",
+    "subcategoria": "Grande",
+    "nombre": "Pizza de Pepperoni con orilla de queso",
+    "descripcion": "12 porciones",
+    "promocion": "no",
+    "precio": "65",
+    "precio_descuento": "",
+    "imagen": "pizzaPepperoniConOrillaQueso.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "categoria": "Pizza de Especialidad",
+    "subcategoria": "Grande",
+    "nombre": "Pizza Deluxe - 12 porciones",
+    "descripcion": "Salsa de tomate, carne, pepperoni, jamón, salami, salchicha italiana, champiñon, cebolla, chile pimiento y queso mozzarella. ",
+    "promocion": "no",
+    "precio": "90",
+    "precio_descuento": "",
+    "imagen": "pizzaDeluxe.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "categoria": "Pizza de 1 Ingrediente",
+    "subcategoria": "Grande",
+    "nombre": "Pizza 2 Estaciones - 12 porciones",
+    "descripcion": "Carne / Pepperoni. Jamón / Carne. Salchicha / Salami.",
+    "promocion": "no",
+    "precio": "55",
+    "precio_descuento": "",
+    "imagen": "pizza2Estaciones.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "categoria": "Pizza de 1 Ingrediente",
+    "subcategoria": "Mediana",
+    "nombre": "3 Pizzas Medianas",
+    "descripcion": "Tres pizzas medianas de un ingrediente: carne, jamón o pepperoni. ",
+    "promocion": "si",
+    "precio": "110",
+    "precio_descuento": "",
+    "imagen": "pizzaPromo3Medianas.png",
+    "mostrarProducto": "si"
+  },
+  {
     "categoria": "Pizza de 1 Ingrediente",
     "subcategoria": "Mediana",
     "nombre": "Pizza de Carne",
@@ -67,17 +155,6 @@
   },
   {
     "categoria": "Pizza de Especialidad",
-    "subcategoria": "Grande",
-    "nombre": "Pizza 5 Carnes - 12 porciones",
-    "descripcion": "Salsa de tomate, carne, pepperoni, jamón, salami, salchicha italiana y queso mozzarella. ",
-    "promocion": "no",
-    "precio": "85",
-    "precio_descuento": "",
-    "imagen": "pizza5Carnes.png",
-    "mostrarProducto": "si"
-  },
-  {
-    "categoria": "Pizza de Especialidad",
     "subcategoria": "Mediana",
     "nombre": "Pizza 5 Carnes - 8 porciones",
     "descripcion": "Salsa de tomate, carne, pepperoni, jamón, salami, salchicha italiana y queso mozzarella. ",
@@ -85,17 +162,6 @@
     "precio": "65",
     "precio_descuento": "",
     "imagen": "pizza5Carnes.png",
-    "mostrarProducto": "si"
-  },
-  {
-    "categoria": "Pizza de Especialidad",
-    "subcategoria": "Grande",
-    "nombre": "Pizza Toscana - 12 porciones",
-    "descripcion": "Salsa de tomate, pepperoni, jamón, champiñones, chile pimiento y queso mozzarella. ",
-    "promocion": "no",
-    "precio": "85",
-    "precio_descuento": "",
-    "imagen": "pizzaToscana.png",
     "mostrarProducto": "si"
   },
   {
@@ -111,17 +177,6 @@
   },
   {
     "categoria": "Pizza de Especialidad",
-    "subcategoria": "Grande",
-    "nombre": "Pizza Chapina - 12 porciones",
-    "descripcion": "Base de frijol, carne, cebolla y queso mozzarella.",
-    "promocion": "no",
-    "precio": "70",
-    "precio_descuento": "",
-    "imagen": "pizzaChapina.png",
-    "mostrarProducto": "si"
-  },
-  {
-    "categoria": "Pizza de Especialidad",
     "subcategoria": "Mediana",
     "nombre": "Pizza Chapina - 8 porciones",
     "descripcion": "Base de frijol, carne, cebolla y queso mozzarella.",
@@ -129,17 +184,6 @@
     "precio": "60",
     "precio_descuento": "",
     "imagen": "pizzaChapina.png",
-    "mostrarProducto": "si"
-  },
-  {
-    "categoria": "Pizza de Especialidad",
-    "subcategoria": "Grande",
-    "nombre": "Pizza Hawaiana - 12 porciones",
-    "descripcion": "Jamón y piña sobre queso derretido.",
-    "promocion": "no",
-    "precio": "65",
-    "precio_descuento": "",
-    "imagen": "pizzaHawaiana.png",
     "mostrarProducto": "si"
   },
   {
@@ -155,17 +199,6 @@
   },
   {
     "categoria": "Pizza de 1 Ingrediente",
-    "subcategoria": "Grande",
-    "nombre": "Pizza de Pepperoni con orilla de queso",
-    "descripcion": "12 porciones",
-    "promocion": "no",
-    "precio": "65",
-    "precio_descuento": "",
-    "imagen": "pizzaPepperoniConOrillaQueso.png",
-    "mostrarProducto": "si"
-  },
-  {
-    "categoria": "Pizza de 1 Ingrediente",
     "subcategoria": "Mediana",
     "nombre": "Pizza de Pepperoni con orilla de queso",
     "descripcion": "8 porciones",
@@ -173,17 +206,6 @@
     "precio": "55",
     "precio_descuento": "",
     "imagen": "pizzaPepperoniConOrillaQueso.png",
-    "mostrarProducto": "si"
-  },
-  {
-    "categoria": "Pizza de Especialidad",
-    "subcategoria": "Grande",
-    "nombre": "Pizza Deluxe - 12 porciones",
-    "descripcion": "Salsa de tomate, carne, pepperoni, jamón, salami, salchicha italiana, champiñon, cebolla, chile pimiento y queso mozzarella. ",
-    "promocion": "no",
-    "precio": "90",
-    "precio_descuento": "",
-    "imagen": "pizzaDeluxe.png",
     "mostrarProducto": "si"
   },
   {
@@ -199,17 +221,6 @@
   },
   {
     "categoria": "Pizza de 1 Ingrediente",
-    "subcategoria": "Grande",
-    "nombre": "Pizza 2 Estaciones - 12 porciones",
-    "descripcion": "Carne / Pepperoni. Jamón / Carne. Salchicha / Salami.",
-    "promocion": "no",
-    "precio": "55",
-    "precio_descuento": "",
-    "imagen": "pizza2Estaciones.png",
-    "mostrarProducto": "si"
-  },
-  {
-    "categoria": "Pizza de 1 Ingrediente",
     "subcategoria": "Mediana",
     "nombre": "Pizza 2 Estaciones - 8 porciones",
     "descripcion": "Carne / Pepperoni. Jamón / Carne. Salchicha / Salami.",
@@ -220,15 +231,26 @@
     "mostrarProducto": "si"
   },
   {
-    "categoria": "Pizza de 1 Ingrediente",
-    "subcategoria": "Mediana",
-    "nombre": "3 Pizzas Medianas",
-    "descripcion": "Tres pizzas medianas de un ingrediente: carne, jamón o pepperoni. ",
+    "categoria": "Calzones",
+    "subcategoria": "",
+    "nombre": "Calzone de Carne",
+    "descripcion": "Relleno de carne y especias",
     "promocion": "si",
-    "precio": "110",
+    "precio": "45",
     "precio_descuento": "",
-    "imagen": "pizzaPromo3Medianas.png",
-    "mostrarProducto": "si"
+    "imagen": "logoTemporal.png",
+    "mostrarProducto": "no"
+  },
+  {
+    "categoria": "Pollo",
+    "subcategoria": "",
+    "nombre": "Porción de pollo",
+    "descripcion": "Papas y agua",
+    "promocion": "si",
+    "precio": "40",
+    "precio_descuento": "",
+    "imagen": "logoTemporal.png",
+    "mostrarProducto": "no"
   },
   {
     "categoria": "Personales",
@@ -314,17 +336,6 @@
     "descripcion": "Jamón, queso y tomate.",
     "promocion": "no",
     "precio": "40",
-    "precio_descuento": "",
-    "imagen": "logoTemporal.png",
-    "mostrarProducto": "no"
-  },
-  {
-    "categoria": "Calzones",
-    "subcategoria": "",
-    "nombre": "Calzone de Carne",
-    "descripcion": "Relleno de carne y especias",
-    "promocion": "si",
-    "precio": "45",
     "precio_descuento": "",
     "imagen": "logoTemporal.png",
     "mostrarProducto": "no"
@@ -446,17 +457,6 @@
     "descripcion": "",
     "promocion": "no",
     "precio": "10",
-    "precio_descuento": "",
-    "imagen": "logoTemporal.png",
-    "mostrarProducto": "no"
-  },
-  {
-    "categoria": "Pollo",
-    "subcategoria": "",
-    "nombre": "Porción de pollo",
-    "descripcion": "Papas y agua",
-    "promocion": "si",
-    "precio": "40",
     "precio_descuento": "",
     "imagen": "logoTemporal.png",
     "mostrarProducto": "no"
