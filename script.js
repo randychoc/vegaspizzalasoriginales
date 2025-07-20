@@ -39,12 +39,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   const categorias = ["Todas", ...data.map((c) => c.nombre)];
   const iconosCategoria = {
     Todas: "📋",
-    Pollo: "🍗",
+    // "Pollo y Hamburguesas": "🍗🍔",
     Pizzas: "🍕",
     "Pizza de 1 Ingrediente": "🍕",
     "Pizza de Especialidad": "🍕",
     "Otras Pizzas": "🍕",
-    Calzones: "🌯",
+    Calzones: "🥟",
     Lasañas: "🍝",
     Alitas: "🍗",
     Bebidas: "🥤",
@@ -76,6 +76,18 @@ document.addEventListener("DOMContentLoaded", async () => {
       scrollInit.scrollIntoView({ behavior: "smooth" });
     }
   });
+
+  const divPollo = document.createElement("div");
+  divPollo.className = "categoria-item";
+  divPollo.textContent = "🍗 Pollo y Hamburguesas";
+  divPollo.innerHTML = `
+  <button class="btn categoria-icono">🍗🍔</button>
+  <div class="fw-light mt-1 text-white small">Pollo y Hamburguesas</div>
+`;
+  divPollo.addEventListener("click", () => {
+    mostrarSeccionPollo();
+  });
+  document.getElementById("filtros-categorias").appendChild(divPollo);
 
   function renderCatalogo() {
     catalogo.innerHTML = "";
@@ -151,4 +163,26 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   renderCatalogo();
+
+  function mostrarSeccionPollo() {
+    const catalogo = document.getElementById("catalogo");
+    catalogo.innerHTML = `
+    <div class="row g-3">
+      ${[1, 2, 3, 4]
+        .map(
+          (i) => `
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card shadow">
+            <img src="img/pollo${i}.jpg" class="card-img-top" alt="Pollo ${i}">
+          </div>
+        </div>
+      `
+        )
+        .join("")}
+    </div>
+  `;
+    document
+      .getElementById("scrollInit")
+      .scrollIntoView({ behavior: "smooth" });
+  }
 });
