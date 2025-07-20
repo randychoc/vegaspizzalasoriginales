@@ -322,11 +322,66 @@
     "categoria": "Calzones",
     "subcategoria": "",
     "nombre": "Calzone 1 Ingrediente",
-    "descripcion": "Jamón, Carne y Pepperoni.",
+    "descripcion": "Jamón, Carne o Pepperoni.",
     "promocion": "no",
     "precio": "20",
     "precio_descuento": "",
-    "imagen": "logoTemporal.png",
+    "imagen": "calzone.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "categoria": "Calzones",
+    "subcategoria": "",
+    "nombre": "Calzone Champiñon",
+    "descripcion": "",
+    "promocion": "no",
+    "precio": "20",
+    "precio_descuento": "",
+    "imagen": "calzone.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "categoria": "Calzones",
+    "subcategoria": "",
+    "nombre": "Calzone Deluxe",
+    "descripcion": "",
+    "promocion": "no",
+    "precio": "25",
+    "precio_descuento": "",
+    "imagen": "calzone.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "categoria": "Calzones",
+    "subcategoria": "",
+    "nombre": "Calzone 5 Carnes",
+    "descripcion": "",
+    "promocion": "no",
+    "precio": "25",
+    "precio_descuento": "",
+    "imagen": "calzone.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "categoria": "Calzones",
+    "subcategoria": "",
+    "nombre": "Calzone Hawaiano",
+    "descripcion": "",
+    "promocion": "no",
+    "precio": "25",
+    "precio_descuento": "",
+    "imagen": "calzone.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "categoria": "Calzones",
+    "subcategoria": "",
+    "nombre": "Calzone Supremo",
+    "descripcion": "",
+    "promocion": "no",
+    "precio": "30",
+    "precio_descuento": "",
+    "imagen": "calzone.png",
     "mostrarProducto": "si"
   },
   {
