@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 }
                 <img src="img/${p.imagen}" class="producto-img mb-3" alt="${
               p.nombre
-            }" />
+            }" loading="lazy" />
                 <h4>${p.nombre}</h4>
                 <p>${p.descripcion}</p>
                 <div class="mt-2 precio-container">${precioHTML}</div>
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           (i) => `
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card shadow">
-            <img src="img/pollo${i}.jpg" class="card-img-top" alt="Pollo ${i}">
+            <img src="img/pollo${i}.jpg" class="card-img-top" alt="Pollo ${i}" loading="lazy">
           </div>
         </div>
       `
