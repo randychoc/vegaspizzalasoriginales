@@ -3,10 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const filtros = document.getElementById("filtros-categorias");
   const scrollInit = document.getElementById("scrollInit");
 
-  // opción 1 local
   const response = await fetch("productos.json");
-  // opción 2 desde Google Sheets
-  // const response = await fetch("https://opensheet.elk.sh/1YNBL2a2AGZOSFVIfJ9hVJQkcR0ZcMz_0KNYxBu1AV1g/VPP");
   const rawData = await response.json();
 
   const data = [];
@@ -139,19 +136,27 @@ document.addEventListener("DOMContentLoaded", async () => {
               : `<strong>Q${p.precio.toFixed(2)}</strong>`;
 
             return `
-            <div class="col-md-4">
-              <div class="producto-card p-3 h-100 d-flex flex-column position-relative">
-                ${
-                  p.promocion ? '<span class="promo-badge">¡OFERTA!</span>' : ""
-                }
-                <img src="img/${p.imagen}" class="producto-img mb-3" alt="${
+              <div class="col-md-4">
+                  <div class="producto-card p-3 h-100 d-flex flex-column position-relative">
+                    ${
+                      p.promocion
+                        ? '<span class="promo-badge">¡OFERTA!</span>'
+                        : ""
+                    }
+                    <picture class="mb-3">
+                      <source srcset="img/${p.imagen.replace(
+                        /\.(jpg|jpeg|png)$/i,
+                        ".webp"
+                      )}" type="image/webp">
+                      <img src="img/${p.imagen}" class="producto-img" alt="${
               p.nombre
-            }" />
-                <h4>${p.nombre}</h4>
-                <p>${p.descripcion}</p>
-                <div class="mt-2 precio-container">${precioHTML}</div>
-              </div>
-            </div>`;
+            }" loading="lazy" />
+                    </picture>
+                    <h4>${p.nombre}</h4>
+                    <p>${p.descripcion}</p>
+                    <div class="mt-2 precio-container">${precioHTML}</div>
+                  </div>
+              </div>`;
           })
           .join("");
 
@@ -173,7 +178,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           (i) => `
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card shadow">
-            <img src="img/pollo${i}.jpg" class="card-img-top" alt="Pollo ${i}">
+            <img src="img/pollo${i}.jpg" class="card-img-top" alt="Pollo ${i}" loading="lazy">
           </div>
         </div>
       `

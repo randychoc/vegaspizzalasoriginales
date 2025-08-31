@@ -15,7 +15,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
 
-  background-image: url("img/fondoOficial.png"); /* Reemplaza con tu imagen */
+  background-image: url("img/fondoOficial.jpg"); /* Reemplaza con tu imagen */
   background-size: cover; /* Cubrir toda la pantalla */
   background-repeat: no-repeat;
   background-position: center center;
