@@ -259,3 +259,13 @@ footer {
   font-size: 24px;
   line-height: 1;
 }
+
+.footer-dev-link {
+  color: var(--colorRed);
+  font-weight: bold;
+  text-decoration: none;
+}
+.footer-dev-link:hover {
+  color: #ff1a4f;
+  text-decoration: underline;
+}
