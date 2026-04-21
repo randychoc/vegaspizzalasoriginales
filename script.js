@@ -1,3 +1,146 @@
+// ─── Estado del carrito ──────────────────────────────────────────────────────
+let carrito = JSON.parse(localStorage.getItem("vp_carrito") || "[]");
+
+function guardarCarrito() {
+  localStorage.setItem("vp_carrito", JSON.stringify(carrito));
+}
+
+function calcularTotal() {
+  return carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+}
+
+function actualizarHeaderCarrito() {
+  const total = calcularTotal();
+  const cantidad = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+  const totalEl = document.getElementById("carrito-total-header");
+  const badge = document.getElementById("carrito-badge");
+  if (totalEl) totalEl.textContent = `Q${total.toFixed(2)}`;
+  if (badge) {
+    badge.textContent = cantidad;
+    badge.style.display = cantidad > 0 ? "inline-flex" : "none";
+  }
+}
+
+function agregarAlCarrito(producto) {
+  const existing = carrito.find((i) => i.id === producto.id);
+  if (existing) {
+    existing.cantidad += 1;
+  } else {
+    carrito.push({
+      id: producto.id,
+      nombre: producto.nombre,
+      subcategoria: producto.subcategoria,
+      precio: producto.precio_descuento ?? producto.precio,
+      cantidad: 1,
+    });
+  }
+  guardarCarrito();
+  actualizarHeaderCarrito();
+  mostrarNotificacion("Producto agregado 🛒");
+}
+
+function cambiarCantidad(id, delta) {
+  const item = carrito.find((i) => i.id === id);
+  if (!item) return;
+  item.cantidad += delta;
+  if (item.cantidad <= 0) carrito = carrito.filter((i) => i.id !== id);
+  guardarCarrito();
+  actualizarHeaderCarrito();
+  renderCarritoPanel();
+}
+
+function quitarDelCarrito(id) {
+  carrito = carrito.filter((i) => i.id !== id);
+  guardarCarrito();
+  actualizarHeaderCarrito();
+  renderCarritoPanel();
+}
+
+function renderCarritoPanel() {
+  const itemsEl = document.getElementById("carrito-items");
+  const ordenarBtn = document.getElementById("carrito-ordenar-btn");
+  const totalEl = document.getElementById("carrito-total-panel");
+  if (!itemsEl) return;
+
+  const total = calcularTotal();
+  if (totalEl) totalEl.textContent = `Q${total.toFixed(2)}`;
+  if (ordenarBtn) ordenarBtn.disabled = carrito.length === 0;
+
+  if (carrito.length === 0) {
+    itemsEl.innerHTML = `
+      <div class="carrito-vacio">
+        <p>Tu carrito está vacío 🛒</p>
+        <p class="small">Agrega productos desde el menú</p>
+      </div>`;
+    return;
+  }
+
+  itemsEl.innerHTML = carrito
+    .map((item) => {
+      const subtotal = item.precio * item.cantidad;
+      const subcat = item.subcategoria
+        ? ` <span class="carrito-item-sub">· ${item.subcategoria}</span>`
+        : "";
+      return `
+      <div class="carrito-item">
+        <div class="carrito-item-info">
+          <div class="carrito-item-nombre">${item.nombre}${subcat}</div>
+          <div class="carrito-item-precio">Q${item.precio.toFixed(2)} c/u</div>
+        </div>
+        <div class="carrito-item-controles">
+          <button class="btn-cantidad btn-menos" data-id="${item.id}" aria-label="Reducir cantidad">−</button>
+          <span class="carrito-cantidad">${item.cantidad}</span>
+          <button class="btn-cantidad btn-mas" data-id="${item.id}" aria-label="Aumentar cantidad">+</button>
+          <button class="btn-quitar" data-id="${item.id}" aria-label="Quitar ${item.nombre}">🗑</button>
+        </div>
+        <div class="carrito-item-subtotal">Q${subtotal.toFixed(2)}</div>
+      </div>`;
+    })
+    .join("");
+}
+
+function generarMensajeWhatsApp() {
+  if (carrito.length === 0) return;
+  let msg = "Buen día, deseo ordenar:\n\n";
+  carrito.forEach((item) => {
+    const nombre = item.subcategoria
+      ? `${item.nombre} - ${item.subcategoria}`
+      : item.nombre;
+    const subtotal = item.precio * item.cantidad;
+    msg += `• ${item.cantidad}x - *${nombre}*\n`;
+    if (item.cantidad > 1)
+      msg += `  Precio unitario: Q${item.precio.toFixed(2)}\n`;
+    msg += `  Subtotal: Q${subtotal.toFixed(2)}\n\n`;
+  });
+  msg += `─────────────────\n*Total: Q${calcularTotal().toFixed(2)}*\n\n¡Gracias! 🍕`;
+  window.open(
+    `https://wa.me/50255727562?text=${encodeURIComponent(msg)}`,
+    "_blank"
+  );
+}
+
+function mostrarNotificacion(texto) {
+  const notif = document.getElementById("carrito-notif");
+  if (!notif) return;
+  notif.textContent = texto;
+  notif.classList.add("visible");
+  setTimeout(() => notif.classList.remove("visible"), 2000);
+}
+
+function abrirCarrito() {
+  document.getElementById("carrito-panel")?.classList.add("abierto");
+  document.getElementById("carrito-overlay")?.classList.add("visible");
+  document.body.style.overflow = "hidden";
+  renderCarritoPanel();
+}
+
+function cerrarCarrito() {
+  document.getElementById("carrito-panel")?.classList.remove("abierto");
+  document.getElementById("carrito-overlay")?.classList.remove("visible");
+  document.body.style.overflow = "";
+}
+
+// ─── Catálogo ────────────────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", async () => {
   const catalogo = document.getElementById("catalogo");
   const filtros = document.getElementById("filtros-categorias");
@@ -28,6 +171,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     categoria.productos.push({
+      id: producto.id,
       nombre: producto.nombre,
       descripcion: producto.descripcion,
       subcategoria: producto.subcategoria?.trim() || "",
@@ -38,6 +182,43 @@ document.addEventListener("DOMContentLoaded", async () => {
       promocion: producto.promocion?.toLowerCase() === "si",
       imagen: producto.imagen,
     });
+  });
+
+  // Inicializar display del carrito en el header
+  actualizarHeaderCarrito();
+
+  // Event listeners del carrito
+  document
+    .getElementById("carrito-header-btn")
+    ?.addEventListener("click", abrirCarrito);
+  document
+    .getElementById("carrito-cerrar")
+    ?.addEventListener("click", cerrarCarrito);
+  document
+    .getElementById("carrito-overlay")
+    ?.addEventListener("click", cerrarCarrito);
+  document
+    .getElementById("carrito-ordenar-btn")
+    ?.addEventListener("click", generarMensajeWhatsApp);
+
+  document.getElementById("carrito-items")?.addEventListener("click", (e) => {
+    const id = parseInt(e.target.dataset.id);
+    if (!id) return;
+    if (e.target.classList.contains("btn-menos")) cambiarCantidad(id, -1);
+    else if (e.target.classList.contains("btn-mas")) cambiarCantidad(id, 1);
+    else if (e.target.classList.contains("btn-quitar")) quitarDelCarrito(id);
+  });
+
+  // Delegación de eventos para botones "Agregar" en las tarjetas
+  catalogo.addEventListener("click", (e) => {
+    if (!e.target.matches(".btn-agregar-carrito")) return;
+    const id = parseInt(e.target.dataset.id);
+    let found = null;
+    for (const cat of data) {
+      found = cat.productos.find((p) => p.id === id);
+      if (found) break;
+    }
+    if (found) agregarAlCarrito(found);
   });
 
   let categoriaSeleccionada = "Todas";
@@ -171,16 +352,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             return `
               <div class="col-md-4">
-                  <div class="producto-card p-3 h-100 d-flex flex-column position-relative">
-                    ${p.promocion ? '<span class="promo-badge">¡OFERTA!</span>' : ""}
-                    <picture class="mb-3">
-                      <source srcset="img/${p.imagen.replace(/\.(jpg|jpeg|png)$/i, ".webp")}" type="image/webp">
-                      <img src="img/${p.imagen}" class="producto-img" alt="${p.nombre}" loading="lazy" width="280" height="180" />
-                    </picture>
-                    <h4>${p.nombre}</h4>
-                    <p>${p.descripcion}</p>
-                    <div class="mt-2 precio-container">${precioHTML}</div>
-                  </div>
+                <div class="producto-card p-3 h-100 d-flex flex-column position-relative">
+                  ${p.promocion ? '<span class="promo-badge">¡OFERTA!</span>' : ""}
+                  <picture class="mb-3">
+                    <source srcset="img/${p.imagen.replace(/\.(jpg|jpeg|png)$/i, ".webp")}" type="image/webp">
+                    <img src="img/${p.imagen}" class="producto-img" alt="${p.nombre}" loading="lazy" width="280" height="180" />
+                  </picture>
+                  <h4>${p.nombre}</h4>
+                  <p>${p.descripcion}</p>
+                  <div class="mt-2 precio-container">${precioHTML}</div>
+                  <button class="btn-agregar-carrito mt-3" data-id="${p.id}">+ Agregar al carrito</button>
+                </div>
               </div>`;
           })
           .join("");
@@ -195,6 +377,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderCatalogo();
 
   function mostrarSeccionPollo() {
+    const msgPollo = encodeURIComponent(
+      "Buen día, me interesa el menú de Pollo y Hamburguesas 🍗"
+    );
     catalogo.innerHTML = `
     <div class="row g-3">
       ${[1, 2, 3, 4]
@@ -209,6 +394,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         )
         .join("")}
     </div>
-  `;
+    <div class="text-center mt-4">
+      <a href="https://wa.me/50255727562?text=${msgPollo}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn-consultar-pollo">
+        💬 Consultar por WhatsApp
+      </a>
+    </div>`;
   }
 });

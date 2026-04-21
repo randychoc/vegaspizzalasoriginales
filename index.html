@@ -83,8 +83,14 @@
                         <h1 class="fw-bold mt-2">Vegas Pizza Las Originales</h1>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 d-flex">
+                <div class="col-12 col-md-6">
                     <div class="row mt-3">
+                        <div class="col-12 py-2">
+                            <button id="carrito-header-btn" class="carrito-header-btn" aria-label="Abrir carrito de compras">
+                                🛒 <span id="carrito-total-header">Q0.00</span>
+                                <span id="carrito-badge" class="carrito-badge" style="display:none">0</span>
+                            </button>
+                        </div>
                         <div class="col-12 py-2">
                             <span class="fw-bold h5 py-1 px-2 callAction"> 📞 +502 5572-7562 </span>
                         </div>
@@ -128,6 +134,31 @@
             <p class="mb-0">© 2025 Vegas Pizza &nbsp;·&nbsp; Desarrollado por <a href="https://renoa.tech/" target="_blank" rel="noopener noreferrer" class="footer-dev-link">RENOA</a></p>
         </div>
     </footer>
+
+    <!-- Carrito de compras -->
+    <div id="carrito-overlay" class="carrito-overlay"></div>
+    <div id="carrito-panel" class="carrito-panel" role="dialog" aria-modal="true" aria-label="Carrito de compras">
+        <div class="carrito-panel-header">
+            <h3>🛒 Tu pedido</h3>
+            <button id="carrito-cerrar" class="carrito-cerrar-btn" aria-label="Cerrar carrito">✕</button>
+        </div>
+        <div id="carrito-items" class="carrito-items">
+            <div class="carrito-vacio">
+                <p>Tu carrito está vacío 🛒</p>
+                <p class="small">Agrega productos desde el menú</p>
+            </div>
+        </div>
+        <div class="carrito-panel-footer">
+            <div class="carrito-total-row">
+                <span>Total:</span>
+                <span id="carrito-total-panel">Q0.00</span>
+            </div>
+            <button id="carrito-ordenar-btn" class="btn-ordenar-wa" disabled>
+                💬 Ordenar por WhatsApp
+            </button>
+        </div>
+    </div>
+    <div id="carrito-notif" class="carrito-notif"></div>
 
     <script src="script.js"></script>
 
