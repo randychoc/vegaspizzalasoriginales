@@ -200,9 +200,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       ${[1, 2, 3, 4]
         .map(
           (i) => `
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6">
           <div class="card shadow">
-            <img src="img/pollo${i}.jpg" class="card-img-top" alt="Pollo y Hamburguesas ${i}" loading="lazy" width="400" height="300">
+            <img src="img/pollo${i}.jpg" class="card-img-top" alt="Pollo y Hamburguesas ${i}" loading="lazy">
           </div>
         </div>
       `

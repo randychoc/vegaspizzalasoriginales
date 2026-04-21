@@ -27,7 +27,7 @@ There are 3 branches. GitHub Pages deploys exclusively from the `deployProduccio
 
 **`script.js`** fetches `productos.json`, filters by `mostrarProducto`, groups by category/subcategory, and renders the entire product grid dynamically. Category filter tabs are built from the data (not hardcoded). The "Pollo y Hamburguesas" section uses static placeholder images (`pollo1-4.jpg`).
 
-**`style.css`** / **`styleMin.css`** — keep both in sync when making CSS changes. The minified version is what's preloaded for performance.
+**`style.css`** / **`styleMin.css`** — `style.css` is the source of truth for development. Only update `styleMin.css` when merging to `deployProduccion` (production). Do not minify during development.
 
 ## Image Conventions
 
