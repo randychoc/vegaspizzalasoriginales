@@ -3,8 +3,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   const filtros = document.getElementById("filtros-categorias");
   const scrollInit = document.getElementById("scrollInit");
 
-  const response = await fetch("productos.json");
-  const rawData = await response.json();
+  catalogo.innerHTML =
+    '<p class="text-center text-light py-5">Cargando menú...</p>';
+
+  let rawData;
+  try {
+    const response = await fetch("productos.json");
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    rawData = await response.json();
+  } catch {
+    catalogo.innerHTML =
+      '<p class="text-center text-danger py-5">Error al cargar el menú. Por favor recarga la página.</p>';
+    return;
+  }
 
   const data = [];
   rawData.forEach((producto) => {
@@ -24,9 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       precio_descuento: producto.precio_descuento
         ? parseFloat(producto.precio_descuento)
         : null,
-      promocion:
-        producto.promocion?.toLowerCase() === "sí" ||
-        producto.promocion?.toLowerCase() === "si",
+      promocion: producto.promocion?.toLowerCase() === "si",
       imagen: producto.imagen,
     });
   });
@@ -36,7 +45,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const categorias = ["Todas", ...data.map((c) => c.nombre)];
   const iconosCategoria = {
     Todas: "📋",
-    // "Pollo y Hamburguesas": "🍗🍔",
     Pizzas: "🍕",
     "Pizza de 1 Ingrediente": "🍕",
     "Pizza de Especialidad": "🍕",
@@ -51,8 +59,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     .map((cat) => {
       const icono = iconosCategoria[cat] || "🍽️";
       return `
-    <div class="categoria-item" data-cat="${cat}">
-      <button class="btn categoria-icono">
+    <div class="categoria-item" data-cat="${cat}" role="tab" tabindex="0" aria-selected="false" aria-label="Filtrar por ${cat}">
+      <button class="btn categoria-icono" tabindex="-1" aria-hidden="true">
         ${icono}
       </button>
       <div class="fw-light mt-1 text-white small">${cat}</div>
@@ -61,30 +69,58 @@ document.addEventListener("DOMContentLoaded", async () => {
     })
     .join("");
 
+  function setActiveCategoria(el) {
+    document.querySelectorAll(".categoria-item").forEach((item) => {
+      item.classList.remove("active");
+      item.setAttribute("aria-selected", "false");
+    });
+    el.classList.add("active");
+    el.setAttribute("aria-selected", "true");
+  }
+
   filtros.addEventListener("click", (e) => {
     const target = e.target.closest(".categoria-item");
     if (target?.dataset.cat) {
       categoriaSeleccionada = target.dataset.cat;
-      document
-        .querySelectorAll(".categoria-item")
-        .forEach((el) => el.classList.remove("activa"));
-      target.classList.add("activa");
+      setActiveCategoria(target);
       renderCatalogo();
       scrollInit.scrollIntoView({ behavior: "smooth" });
     }
   });
 
+  filtros.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      const target = e.target.closest(".categoria-item");
+      if (target?.dataset.cat) {
+        e.preventDefault();
+        target.click();
+      }
+    }
+  });
+
   const divPollo = document.createElement("div");
   divPollo.className = "categoria-item";
-  divPollo.textContent = "🍗 Pollo y Hamburguesas";
+  divPollo.setAttribute("role", "tab");
+  divPollo.setAttribute("tabindex", "0");
+  divPollo.setAttribute("aria-selected", "false");
+  divPollo.setAttribute("aria-label", "Filtrar por Pollo y Hamburguesas");
   divPollo.innerHTML = `
-  <button class="btn categoria-icono">🍗🍔</button>
+  <button class="btn categoria-icono" tabindex="-1" aria-hidden="true">🍗🍔</button>
   <div class="fw-light mt-1 text-white small">Pollo y Hamburguesas</div>
 `;
   divPollo.addEventListener("click", () => {
+    setActiveCategoria(divPollo);
     mostrarSeccionPollo();
+    scrollInit.scrollIntoView({ behavior: "smooth" });
   });
   document.getElementById("filtros-categorias").appendChild(divPollo);
+
+  // Marcar "Todas" como activa al cargar
+  const todasEl = filtros.querySelector('[data-cat="Todas"]');
+  if (todasEl) {
+    todasEl.classList.add("active");
+    todasEl.setAttribute("aria-selected", "true");
+  }
 
   function renderCatalogo() {
     catalogo.innerHTML = "";
@@ -118,7 +154,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         const subcatTitulo = subcat
-          ? `<h4 class="subtitulos" >${subcat}</h4>`
+          ? `<h4 class="subtitulos">${subcat}</h4>`
           : "";
 
         const fila = document.createElement("div");
@@ -130,27 +166,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const precioHTML = tieneDescuento
               ? `<span class="precio-original">Q${p.precio.toFixed(2)}</span>
-               <span class="precio-descuento">Q${p.precio_descuento.toFixed(
-                 2
-               )}</span>`
+               <span class="precio-descuento">Q${p.precio_descuento.toFixed(2)}</span>`
               : `<strong>Q${p.precio.toFixed(2)}</strong>`;
 
             return `
               <div class="col-md-4">
                   <div class="producto-card p-3 h-100 d-flex flex-column position-relative">
-                    ${
-                      p.promocion
-                        ? '<span class="promo-badge">¡OFERTA!</span>'
-                        : ""
-                    }
+                    ${p.promocion ? '<span class="promo-badge">¡OFERTA!</span>' : ""}
                     <picture class="mb-3">
-                      <source srcset="img/${p.imagen.replace(
-                        /\.(jpg|jpeg|png)$/i,
-                        ".webp"
-                      )}" type="image/webp">
-                      <img src="img/${p.imagen}" class="producto-img" alt="${
-              p.nombre
-            }" loading="lazy" />
+                      <source srcset="img/${p.imagen.replace(/\.(jpg|jpeg|png)$/i, ".webp")}" type="image/webp">
+                      <img src="img/${p.imagen}" class="producto-img" alt="${p.nombre}" loading="lazy" width="280" height="180" />
                     </picture>
                     <h4>${p.nombre}</h4>
                     <p>${p.descripcion}</p>
@@ -170,15 +195,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderCatalogo();
 
   function mostrarSeccionPollo() {
-    const catalogo = document.getElementById("catalogo");
     catalogo.innerHTML = `
     <div class="row g-3">
       ${[1, 2, 3, 4]
         .map(
           (i) => `
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-4">
           <div class="card shadow">
-            <img src="img/pollo${i}.jpg" class="card-img-top" alt="Pollo ${i}" loading="lazy">
+            <img src="img/pollo${i}.jpg" class="card-img-top" alt="Pollo y Hamburguesas ${i}" loading="lazy">
           </div>
         </div>
       `
@@ -186,8 +210,5 @@ document.addEventListener("DOMContentLoaded", async () => {
         .join("")}
     </div>
   `;
-    document
-      .getElementById("scrollInit")
-      .scrollIntoView({ behavior: "smooth" });
   }
 });
