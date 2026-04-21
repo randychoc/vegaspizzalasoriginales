@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Disfruta las mejores pizzas, hamburguesas, alitas y pollo en Vegas Pizza. Servicio a domicilio gratis en zona 3. ¡Haz tu pedido ahora!">
     <meta name="keywords"
@@ -15,9 +15,12 @@
     <meta property="og:description"
         content="Haz tu pedido a Vegas Pizza. Servicio a domicilio. Deliciosas pizzas, hamburguesas, alitas y pollo." />
     <meta property="og:image" content="https://vegaspizzalasoriginales.com/img/vegasPizzaLogo.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content="https://vegaspizzalasoriginales.com/" />
     <meta property="og:type" content="website" />
 
+    <link rel="canonical" href="https://vegaspizzalasoriginales.com/" />
     <link rel="shortcut icon" href="img/vegasPizzaLogo.jpg" type="image/x-icon" />
     <link rel="apple-touch-icon" href="img/vegasPizzaLogo.jpg">
     <title>Vegas Pizza Las Originales | Pizzas, Hamburguesas, Alitas y Pollo a domicilio</title>
@@ -28,7 +31,7 @@
     <!-- Estilos personalizados -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
     <link rel="preload" href="styleMin.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -36,16 +39,33 @@
         <link rel="stylesheet" href="styleMin.css">
     </noscript>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GY0Y6ZDL9"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-3GY0Y6ZDL9');
-    </script>
     <meta name="google-site-verification" content="4oYTlvq7Y0hJFQjFl-3nkzaGdlljR4QIoNoNPNCns14" />
+
+    <!-- Schema.org: datos estructurados del restaurante -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Vegas Pizza Las Originales",
+      "image": "https://vegaspizzalasoriginales.com/img/vegasPizzaLogo.jpg",
+      "url": "https://vegaspizzalasoriginales.com",
+      "telephone": "+502 5572-7562",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "13 calle B 6-81 Zona 3",
+        "addressLocality": "Ciudad de Guatemala",
+        "addressCountry": "GT"
+      },
+      "servesCuisine": ["Pizza", "Hamburguesas", "Alitas"],
+      "priceRange": "Q20-Q100",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "11:00",
+        "closes": "21:00"
+      }
+    }
+    </script>
 </head>
 
 <body>
@@ -78,15 +98,15 @@
     </header>
 
     <div class="envio-banner text-center fw-bold">
-        <img src="img/repartidor.png" alt="ADomicilioVegasPizza" class="adomicilioImage">
+        <img src="img/repartidor.png" alt="Ícono de servicio a domicilio" class="adomicilioImage">
         ¡Servicio a domicilio GRATIS en zona 3! Consumo mínimo Q40
-        <img src="img/entrega.png" alt="ADomicilioVegasPizza" class="adomicilioImage">
+        <img src="img/entrega.png" alt="Ícono de entrega rápida" class="adomicilioImage">
     </div>
 
     <div id="scrollInit"></div>
     <div class="carruselContainer">
         <div class="categoria-carousel-wrapper">
-            <div class="text-center overflow-auto" id="filtros-categorias"
+            <div class="text-center overflow-auto" id="filtros-categorias" role="tablist"
                 style="white-space: nowrap; scroll-behavior: smooth;">
                 <!-- Categorías generadas por JS -->
             </div>
@@ -98,7 +118,7 @@
     </main>
 
     <a href="https://wa.me/50255727562?text=Buen+d%C3%ADa+Vegas+Pizza%2C+quiero+hacer+un+pedido.&type=phone_number&app_absent=0"
-        class="whatsapp-float" target="_blank">
+        class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
         <img src="img/wa_compressed_.jpg" alt="WhatsApp" />
     </a>
 
@@ -110,6 +130,15 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GY0Y6ZDL9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-3GY0Y6ZDL9');
+    </script>
 </body>
 
 </html>
