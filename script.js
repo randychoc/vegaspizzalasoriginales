@@ -56,15 +56,25 @@ function quitarDelCarrito(id) {
   renderCarritoPanel();
 }
 
+function vaciarCarrito() {
+  if (!confirm("¿Vaciar todo el carrito?")) return;
+  carrito = [];
+  guardarCarrito();
+  actualizarHeaderCarrito();
+  renderCarritoPanel();
+}
+
 function renderCarritoPanel() {
   const itemsEl = document.getElementById("carrito-items");
   const ordenarBtn = document.getElementById("carrito-ordenar-btn");
   const totalEl = document.getElementById("carrito-total-panel");
+  const vaciarBtn = document.getElementById("carrito-vaciar-btn");
   if (!itemsEl) return;
 
   const total = calcularTotal();
   if (totalEl) totalEl.textContent = `Q${total.toFixed(2)}`;
   if (ordenarBtn) ordenarBtn.disabled = carrito.length === 0;
+  if (vaciarBtn) vaciarBtn.style.display = carrito.length > 0 ? "inline-block" : "none";
 
   if (carrito.length === 0) {
     itemsEl.innerHTML = `
@@ -101,7 +111,7 @@ function renderCarritoPanel() {
 
 function generarMensajeWhatsApp() {
   if (carrito.length === 0) return;
-  let msg = "Buen día, deseo ordenar:\n\n";
+  let msg = "Buen día Vegas Pizza, deseo ordenar:\n\n";
   carrito.forEach((item) => {
     const nombre = item.subcategoria
       ? `${item.nombre} - ${item.subcategoria}`
@@ -200,6 +210,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   document
     .getElementById("carrito-ordenar-btn")
     ?.addEventListener("click", generarMensajeWhatsApp);
+  document
+    .getElementById("carrito-vaciar-btn")
+    ?.addEventListener("click", vaciarCarrito);
 
   document.getElementById("carrito-items")?.addEventListener("click", (e) => {
     const id = parseInt(e.target.dataset.id);

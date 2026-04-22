@@ -262,8 +262,8 @@ footer {
 
 /* ── Botón carrito en header ──────────────────────────────── */
 .carrito-header-btn {
-  background-color: var(--colorRed);
-  color: white;
+  background-color: white;
+  color: var(--colorRed);
   border: none;
   border-radius: 10px;
   padding: 10px 18px;
@@ -279,7 +279,7 @@ footer {
   justify-content: center;
 }
 .carrito-header-btn:hover {
-  background-color: #b8002d;
+  background-color: #f0f0f0;
 }
 @media (min-width: 768px) {
   .carrito-header-btn {
@@ -288,8 +288,8 @@ footer {
 }
 
 .carrito-badge {
-  background-color: white;
-  color: var(--colorRed);
+  background-color: var(--colorRed);
+  color: white;
   border-radius: 50%;
   width: 22px;
   height: 22px;
@@ -364,6 +364,21 @@ footer {
   font-weight: bold;
   font-size: 1.2rem;
 }
+.carrito-vaciar-btn {
+  background: none;
+  border: 1px solid var(--colorRed);
+  border-radius: 6px;
+  font-size: 0.78rem;
+  color: var(--colorRed);
+  cursor: pointer;
+  padding: 3px 10px;
+  transition: background 0.15s, color 0.15s;
+}
+.carrito-vaciar-btn:hover {
+  background: var(--colorRed);
+  color: white;
+}
+
 .carrito-cerrar-btn {
   background: none;
   border: none;

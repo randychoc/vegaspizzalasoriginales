@@ -140,7 +140,10 @@
     <div id="carrito-panel" class="carrito-panel" role="dialog" aria-modal="true" aria-label="Carrito de compras">
         <div class="carrito-panel-header">
             <h3>🛒 Tu pedido</h3>
-            <button id="carrito-cerrar" class="carrito-cerrar-btn" aria-label="Cerrar carrito">✕</button>
+            <div class="d-flex align-items-center gap-2">
+                <button id="carrito-vaciar-btn" class="carrito-vaciar-btn" style="display:none" aria-label="Vaciar carrito">Vaciar</button>
+                <button id="carrito-cerrar" class="carrito-cerrar-btn" aria-label="Cerrar carrito">✕</button>
+            </div>
         </div>
         <div id="carrito-items" class="carrito-items">
             <div class="carrito-vacio">
