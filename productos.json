@@ -264,18 +264,6 @@
     "mostrarProducto": "no"
   },
   {
-    "id": 23,
-    "categoria": "Pollo",
-    "subcategoria": "",
-    "nombre": "Porción de pollo",
-    "descripcion": "Papas y agua",
-    "promocion": "si",
-    "precio": "40",
-    "precio_descuento": "",
-    "imagen": "logoTemporal.png",
-    "mostrarProducto": "no"
-  },
-  {
     "id": 24,
     "categoria": "Personales",
     "subcategoria": "",

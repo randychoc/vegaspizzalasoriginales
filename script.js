@@ -292,23 +292,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  const divPollo = document.createElement("div");
-  divPollo.className = "categoria-item";
-  divPollo.setAttribute("role", "tab");
-  divPollo.setAttribute("tabindex", "0");
-  divPollo.setAttribute("aria-selected", "false");
-  divPollo.setAttribute("aria-label", "Filtrar por Pollo y Hamburguesas");
-  divPollo.innerHTML = `
-  <button class="btn categoria-icono" tabindex="-1" aria-hidden="true">🍗🍔</button>
-  <div class="fw-light mt-1 text-white small">Pollo y Hamburguesas</div>
-`;
-  divPollo.addEventListener("click", () => {
-    setActiveCategoria(divPollo);
-    mostrarSeccionPollo();
-    scrollInit.scrollIntoView({ behavior: "smooth" });
-  });
-  document.getElementById("filtros-categorias").appendChild(divPollo);
-
   // Marcar "Todas" como activa al cargar
   const todasEl = filtros.querySelector('[data-cat="Todas"]');
   if (todasEl) {
@@ -389,31 +372,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   renderCatalogo();
 
-  function mostrarSeccionPollo() {
-    const msgPollo = encodeURIComponent(
-      "Buen día, me interesa el menú de Pollo y Hamburguesas 🍗"
-    );
-    catalogo.innerHTML = `
-    <div class="row g-3">
-      ${[1, 2, 3, 4]
-        .map(
-          (i) => `
-        <div class="col-12 col-md-4">
-          <div class="card shadow">
-            <img src="img/pollo${i}.jpg" class="card-img-top" alt="Pollo y Hamburguesas ${i}" loading="lazy">
-          </div>
-        </div>
-      `
-        )
-        .join("")}
-    </div>
-    <div class="text-center mt-4">
-      <a href="https://wa.me/50255727562?text=${msgPollo}"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn-consultar-pollo">
-        💬 Consultar por WhatsApp
-      </a>
-    </div>`;
-  }
 });

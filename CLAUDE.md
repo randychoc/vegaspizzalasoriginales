@@ -25,9 +25,9 @@ There are 3 branches. GitHub Pages deploys exclusively from the `deployProduccio
 - `promocion: "si"/"no"` — shows "OFERTA!" badge overlay on the card
 - `categoria` / `subcategoria` — controls grouping and filter tabs
 
-**`script.js`** fetches `productos.json`, filters by `mostrarProducto`, groups by category/subcategory, and renders the entire product grid dynamically. Category filter tabs are built from the data (not hardcoded). The "Pollo y Hamburguesas" section uses static placeholder images (`pollo1-4.jpg`).
+**`script.js`** fetches `productos.json`, filters by `mostrarProducto`, groups by category/subcategory, and renders the entire product grid dynamically. Category filter tabs are built from the data (not hardcoded).
 
-**Shopping cart** is fully client-side with `localStorage` persistence (key: `vp_carrito`). Cart state lives in a module-level `carrito` array. Key functions: `agregarAlCarrito`, `cambiarCantidad`, `quitarDelCarrito`, `vaciarCarrito`, `generarMensajeWhatsApp`. The cart panel is a fixed bottom drawer on mobile and a right sidebar (420px) on desktop, toggled via CSS classes `abierto`/`visible`. Ordering sends a pre-formatted message to WhatsApp (`wa.me/50255727562`). The "Pollo y Hamburguesas" section intentionally has no cart — only a WhatsApp consult button.
+**Shopping cart** is fully client-side with `localStorage` persistence (key: `vp_carrito`). Cart state lives in a module-level `carrito` array. Key functions: `agregarAlCarrito`, `cambiarCantidad`, `quitarDelCarrito`, `vaciarCarrito`, `generarMensajeWhatsApp`. The cart panel is a fixed bottom drawer on mobile and a right sidebar (420px) on desktop, toggled via CSS classes `abierto`/`visible`. Ordering sends a pre-formatted message to WhatsApp (`wa.me/50255727562`).
 
 **`style.css`** / **`styleMin.css`** — `style.css` is the source of truth for development. `styleMin.css` is the **only stylesheet loaded by the browser** (via `<link rel="preload">` in `index.html`). Keep both in sync — any CSS change in `style.css` must be reflected in `styleMin.css` or it will have no effect in the browser. Do not minify during active development sessions; sync `styleMin.css` when merging to `deployProduccion`.
 

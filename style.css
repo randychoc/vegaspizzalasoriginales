@@ -567,27 +567,6 @@ footer {
   transform: translateX(-50%) translateY(0);
 }
 
-/* ── Botón consultar (sección Pollo) ──────────────────────── */
-.btn-consultar-pollo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: var(--colorWhatsApp);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 14px 32px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.2s ease;
-}
-.btn-consultar-pollo:hover {
-  background-color: #1ebe5b;
-  color: white;
-}
 
 .footer-dev-link {
   color: var(--colorRed);
