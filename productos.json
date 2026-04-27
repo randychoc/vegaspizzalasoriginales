@@ -479,7 +479,7 @@
     "nombre": "Lasaña Familiar 6 libras de lasaña + 10 panes",
     "descripcion": "Pasta, salsa boloñesa, carne y queso mozzarella.",
     "promocion": "no",
-    "precio": "100",
+    "precio": "110",
     "precio_descuento": "",
     "imagen": "lasanaFamiliar.png",
     "mostrarProducto": "si"
@@ -504,7 +504,7 @@
     "nombre": "Alitas - 20 unidades",
     "descripcion": "Búfalo o Barbacoa. ",
     "promocion": "no",
-    "precio": "95",
+    "precio": "100",
     "precio_descuento": "",
     "imagen": "alitasGeneral.png",
     "opciones": ["Búfalo", "Barbacoa"],
