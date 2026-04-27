@@ -117,6 +117,7 @@
     "precio": "55",
     "precio_descuento": "",
     "imagen": "pizza2Estaciones.png",
+    "opciones": ["Carne / Pepperoni", "Jamón / Carne", "Salchicha / Salami"],
     "mostrarProducto": "si"
   },
   {
@@ -129,6 +130,7 @@
     "precio": "110",
     "precio_descuento": "",
     "imagen": "pizzaPromo3Medianas.png",
+    "opciones": ["Carne", "Jamón", "Pepperoni"],
     "mostrarProducto": "si"
   },
   {
@@ -249,6 +251,7 @@
     "precio": "45",
     "precio_descuento": "",
     "imagen": "pizza2Estaciones.png",
+    "opciones": ["Carne / Pepperoni", "Jamón / Carne", "Salchicha / Salami"],
     "mostrarProducto": "si"
   },
   {
@@ -273,6 +276,7 @@
     "precio": "20",
     "precio_descuento": "",
     "imagen": "pizzaPersonal1Ingrediente.png",
+    "opciones": ["Pepperoni", "Jamón", "Carne"],
     "mostrarProducto": "si"
   },
   {
@@ -345,6 +349,7 @@
     "precio": "20",
     "precio_descuento": "",
     "imagen": "calzone.png",
+    "opciones": ["Jamón", "Carne", "Pepperoni"],
     "mostrarProducto": "si"
   },
   {
@@ -489,6 +494,7 @@
     "precio": "50",
     "precio_descuento": "",
     "imagen": "alitasGeneral.png",
+    "opciones": ["Búfalo", "Barbacoa"],
     "mostrarProducto": "si"
   },
   {
@@ -501,6 +507,7 @@
     "precio": "95",
     "precio_descuento": "",
     "imagen": "alitasGeneral.png",
+    "opciones": ["Búfalo", "Barbacoa"],
     "mostrarProducto": "si"
   },
   {

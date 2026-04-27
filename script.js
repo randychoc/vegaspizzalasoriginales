@@ -1,5 +1,7 @@
 // ─── Estado del carrito ──────────────────────────────────────────────────────
-let carrito = JSON.parse(localStorage.getItem("vp_carrito") || "[]");
+let carrito = JSON.parse(localStorage.getItem("vp_carrito") || "[]").map(
+  (i) => ({ key: i.key ?? `${i.id}_`, ...i })
+);
 
 function guardarCarrito() {
   localStorage.setItem("vp_carrito", JSON.stringify(carrito));
@@ -12,6 +14,7 @@ function calcularTotal() {
 function actualizarHeaderCarrito() {
   const total = calcularTotal();
   const cantidad = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+
   const totalEl = document.getElementById("carrito-total-header");
   const badge = document.getElementById("carrito-badge");
   if (totalEl) totalEl.textContent = `Q${total.toFixed(2)}`;
@@ -19,38 +22,55 @@ function actualizarHeaderCarrito() {
     badge.textContent = cantidad;
     badge.style.display = cantidad > 0 ? "inline-flex" : "none";
   }
+
+  const barra = document.getElementById("carrito-barra");
+  if (barra) {
+    if (cantidad > 0) {
+      barra.classList.add("visible");
+      document.body.classList.add("carrito-barra-activa");
+      const el = barra.querySelector("#carrito-barra-cantidad");
+      const tot = barra.querySelector("#carrito-barra-total");
+      if (el) el.textContent = `${cantidad} ${cantidad === 1 ? "producto" : "productos"}`;
+      if (tot) tot.textContent = `Q${total.toFixed(2)}`;
+    } else {
+      barra.classList.remove("visible");
+      document.body.classList.remove("carrito-barra-activa");
+    }
+  }
 }
 
-function agregarAlCarrito(producto) {
-  const existing = carrito.find((i) => i.id === producto.id);
+function agregarAlCarrito(producto, opcion = null) {
+  const key = `${producto.id}_${opcion || ""}`;
+  const existing = carrito.find((i) => i.key === key);
   if (existing) {
     existing.cantidad += 1;
   } else {
     carrito.push({
+      key,
       id: producto.id,
       nombre: producto.nombre,
       subcategoria: producto.subcategoria,
       precio: producto.precio_descuento ?? producto.precio,
       cantidad: 1,
+      opcion,
     });
   }
   guardarCarrito();
   actualizarHeaderCarrito();
-  mostrarNotificacion("Producto agregado 🛒");
 }
 
-function cambiarCantidad(id, delta) {
-  const item = carrito.find((i) => i.id === id);
+function cambiarCantidad(key, delta) {
+  const item = carrito.find((i) => i.key === key);
   if (!item) return;
   item.cantidad += delta;
-  if (item.cantidad <= 0) carrito = carrito.filter((i) => i.id !== id);
+  if (item.cantidad <= 0) carrito = carrito.filter((i) => i.key !== key);
   guardarCarrito();
   actualizarHeaderCarrito();
   renderCarritoPanel();
 }
 
-function quitarDelCarrito(id) {
-  carrito = carrito.filter((i) => i.id !== id);
+function quitarDelCarrito(key) {
+  carrito = carrito.filter((i) => i.key !== key);
   guardarCarrito();
   actualizarHeaderCarrito();
   renderCarritoPanel();
@@ -91,17 +111,21 @@ function renderCarritoPanel() {
       const subcat = item.subcategoria
         ? ` <span class="carrito-item-sub">· ${item.subcategoria}</span>`
         : "";
+      const opcionHTML = item.opcion
+        ? `<div class="carrito-item-opcion">${item.opcion}</div>`
+        : "";
       return `
       <div class="carrito-item">
         <div class="carrito-item-info">
           <div class="carrito-item-nombre">${item.nombre}${subcat}</div>
+          ${opcionHTML}
           <div class="carrito-item-precio">Q${item.precio.toFixed(2)} c/u</div>
         </div>
         <div class="carrito-item-controles">
-          <button class="btn-cantidad btn-menos" data-id="${item.id}" aria-label="Reducir cantidad">−</button>
+          <button class="btn-cantidad btn-menos" data-key="${item.key}" aria-label="Reducir cantidad">−</button>
           <span class="carrito-cantidad">${item.cantidad}</span>
-          <button class="btn-cantidad btn-mas" data-id="${item.id}" aria-label="Aumentar cantidad">+</button>
-          <button class="btn-quitar" data-id="${item.id}" aria-label="Quitar ${item.nombre}">🗑</button>
+          <button class="btn-cantidad btn-mas" data-key="${item.key}" aria-label="Aumentar cantidad">+</button>
+          <button class="btn-quitar" data-key="${item.key}" aria-label="Quitar ${item.nombre}">🗑</button>
         </div>
         <div class="carrito-item-subtotal">Q${subtotal.toFixed(2)}</div>
       </div>`;
@@ -116,8 +140,9 @@ function generarMensajeWhatsApp() {
     const nombre = item.subcategoria
       ? `${item.nombre} - ${item.subcategoria}`
       : item.nombre;
+    const opcionStr = item.opcion ? ` (${item.opcion})` : "";
     const subtotal = item.precio * item.cantidad;
-    msg += `• ${item.cantidad}x - *${nombre}*\n`;
+    msg += `• ${item.cantidad}x - *${nombre}${opcionStr}*\n`;
     if (item.cantidad > 1)
       msg += `  Precio unitario: Q${item.precio.toFixed(2)}\n`;
     msg += `  Subtotal: Q${subtotal.toFixed(2)}\n\n`;
@@ -129,12 +154,14 @@ function generarMensajeWhatsApp() {
   );
 }
 
+let _notifTimer = null;
 function mostrarNotificacion(texto) {
   const notif = document.getElementById("carrito-notif");
   if (!notif) return;
   notif.textContent = texto;
   notif.classList.add("visible");
-  setTimeout(() => notif.classList.remove("visible"), 2000);
+  clearTimeout(_notifTimer);
+  _notifTimer = setTimeout(() => notif.classList.remove("visible"), 2000);
 }
 
 function abrirCarrito() {
@@ -191,6 +218,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         : null,
       promocion: producto.promocion?.toLowerCase() === "si",
       imagen: producto.imagen,
+      opciones: producto.opciones || null,
     });
   });
 
@@ -211,15 +239,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     .getElementById("carrito-ordenar-btn")
     ?.addEventListener("click", generarMensajeWhatsApp);
   document
+    .getElementById("carrito-barra")
+    ?.addEventListener("click", abrirCarrito);
+  document
     .getElementById("carrito-vaciar-btn")
     ?.addEventListener("click", vaciarCarrito);
 
   document.getElementById("carrito-items")?.addEventListener("click", (e) => {
-    const id = parseInt(e.target.dataset.id);
-    if (!id) return;
-    if (e.target.classList.contains("btn-menos")) cambiarCantidad(id, -1);
-    else if (e.target.classList.contains("btn-mas")) cambiarCantidad(id, 1);
-    else if (e.target.classList.contains("btn-quitar")) quitarDelCarrito(id);
+    const key = e.target.dataset.key;
+    if (!key) return;
+    if (e.target.classList.contains("btn-menos")) cambiarCantidad(key, -1);
+    else if (e.target.classList.contains("btn-mas")) cambiarCantidad(key, 1);
+    else if (e.target.classList.contains("btn-quitar")) quitarDelCarrito(key);
   });
 
   // Delegación de eventos para botones "Agregar" en las tarjetas
@@ -231,7 +262,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       found = cat.productos.find((p) => p.id === id);
       if (found) break;
     }
-    if (found) agregarAlCarrito(found);
+    if (!found) return;
+    if (found.opciones?.length) {
+      mostrarModalOpciones(found);
+    } else {
+      agregarAlCarrito(found);
+      mostrarNotificacion("Producto agregado 🛒");
+    }
   });
 
   let categoriaSeleccionada = "Todas";
@@ -370,6 +407,47 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+  function crearModalOpciones() {
+    const overlay = document.createElement("div");
+    overlay.id = "opciones-overlay";
+    overlay.className = "opciones-overlay";
+    overlay.innerHTML = `
+      <div class="opciones-modal">
+        <h3 id="opciones-titulo" class="opciones-titulo"></h3>
+        <p class="opciones-subtitulo">Elige una opción</p>
+        <div id="opciones-lista" class="opciones-lista"></div>
+        <button id="opciones-cancelar" class="opciones-cancelar">Cancelar</button>
+      </div>`;
+    document.body.appendChild(overlay);
+
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) overlay.classList.remove("visible");
+    });
+    document.getElementById("opciones-cancelar").addEventListener("click", () => {
+      overlay.classList.remove("visible");
+    });
+  }
+
+  function mostrarModalOpciones(producto) {
+    const overlay = document.getElementById("opciones-overlay");
+    document.getElementById("opciones-titulo").textContent = producto.nombre;
+    const lista = document.getElementById("opciones-lista");
+    lista.innerHTML = producto.opciones
+      .map((op) => `<button class="opcion-btn" data-opcion="${op}">${op}</button>`)
+      .join("");
+
+    lista.querySelectorAll(".opcion-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        agregarAlCarrito(producto, btn.dataset.opcion);
+        overlay.classList.remove("visible");
+        mostrarNotificacion("Producto agregado 🛒");
+      });
+    });
+
+    overlay.classList.add("visible");
+  }
+
+  crearModalOpciones();
   renderCatalogo();
 
 });

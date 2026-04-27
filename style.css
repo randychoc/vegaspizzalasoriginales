@@ -165,6 +165,7 @@ footer {
   width: 60px;
   height: 60px;
   z-index: 800;
+  transition: opacity 0.3s, transform 0.3s;
 }
 .whatsapp-float img {
   width: 100%;
@@ -172,7 +173,64 @@ footer {
   object-fit: contain;
   border: none;
   border-radius: 25px;
-  transition: background 0.2s ease;
+}
+body.carrito-barra-activa .whatsapp-float {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+
+/* ── Barra de pedido sticky ── */
+.carrito-barra {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--colorRed);
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1500;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
+}
+.carrito-barra.visible {
+  transform: translateY(0);
+}
+body.carrito-barra-activa {
+  padding-bottom: 68px;
+}
+.carrito-barra-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.carrito-barra-cantidad {
+  font-size: 0.82rem;
+  opacity: 0.85;
+}
+.carrito-barra-total {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.carrito-barra-btn {
+  background: white;
+  color: var(--colorRed);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.carrito-barra-btn:hover {
+  background: #f0f0f0;
 }
 
 .carruselContainer {
@@ -548,25 +606,97 @@ footer {
 /* ── Toast de confirmación ────────────────────────────────── */
 .carrito-notif {
   position: fixed;
-  top: 16px;
+  bottom: 120px;
   left: 50%;
-  transform: translateX(-50%) translateY(-80px);
-  background: var(--colorRed);
-  color: white;
-  padding: 10px 24px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  transform: translateX(-50%) translateY(200px);
+  background: #fff;
+  color: var(--colorBlack);
+  padding: 12px 28px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 700;
   z-index: 3000;
   transition: transform 0.3s ease;
   pointer-events: none;
   white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.22);
+  border-left: 5px solid var(--colorRed);
 }
 .carrito-notif.visible {
   transform: translateX(-50%) translateY(0);
 }
 
+
+/* ── Modal de opciones ── */
+.opciones-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .6);
+  z-index: 2500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+}
+.opciones-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.opciones-modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  max-width: 360px;
+  width: 90%;
+  text-align: center;
+}
+.opciones-titulo {
+  color: var(--colorRed);
+  font-weight: 700;
+  margin-bottom: .25rem;
+  font-size: 1.1rem;
+}
+.opciones-subtitulo {
+  color: var(--colorDarkGrey);
+  font-size: .9rem;
+  margin-bottom: 1rem;
+}
+.opciones-lista {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  margin-bottom: 1rem;
+}
+.opcion-btn {
+  background: #f5f5f5;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: .75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border .15s, background .15s;
+}
+.opcion-btn:hover {
+  border-color: var(--colorRed);
+  background: #fff0f3;
+}
+.opciones-cancelar {
+  background: none;
+  border: none;
+  color: var(--colorDarkGrey);
+  font-size: .9rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.carrito-item-opcion {
+  font-size: .8rem;
+  color: var(--colorWhatsApp);
+  font-weight: 600;
+  margin-top: 1px;
+}
 
 .footer-dev-link {
   color: var(--colorRed);
