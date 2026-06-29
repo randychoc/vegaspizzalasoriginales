@@ -8,7 +8,9 @@ Static website for Vegas Pizza Las Originales, a pizza restaurant in Guatemala. 
 
 ## Branches & Deployment
 
-There are 3 branches. GitHub Pages deploys exclusively from the `deployProduccion` branch (root `/`). Pushing to `main` or other branches does **not** trigger a deploy — changes must be merged into `deployProduccion` to go live. No CI/CD pipeline.
+There are 2 branches. GitHub Pages deploys exclusively from the `deployProduccion` branch (root `/`). Pushing to `main` does **not** trigger a deploy — changes must be merged into `deployProduccion` to go live. No CI/CD pipeline.
+
+Workflow: develop and commit on `main` → merge into `deployProduccion` to publish.
 
 ## Tech Stack
 
