@@ -78,7 +78,7 @@
     "nombre": "Pizza Hawaiana - 12 porciones",
     "descripcion": "Jamón y piña sobre queso derretido.",
     "promocion": "no",
-    "precio": "65",
+    "precio": "70",
     "precio_descuento": "",
     "imagen": "pizzaHawaiana.png",
     "mostrarProducto": "si"
@@ -100,11 +100,23 @@
     "categoria": "Pizza de Especialidad",
     "subcategoria": "Grande",
     "nombre": "Pizza Deluxe - 12 porciones",
-    "descripcion": "Salsa de tomate, carne, pepperoni, jamón, salami, salchicha italiana, champiñon, cebolla, chile pimiento y queso mozzarella. ",
+    "descripcion": "Pepperoni, salchicha italiana, champiñón, chile pimiento y cebolla.",
     "promocion": "no",
     "precio": "90",
     "precio_descuento": "",
     "imagen": "pizzaDeluxe.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "id": 48,
+    "categoria": "Pizza de Especialidad",
+    "subcategoria": "Grande",
+    "nombre": "Pizza Suprema - 12 porciones",
+    "descripcion": "Jamón, carne, pepperoni, salchicha italiana, salami, champiñón, chile pimiento y cebolla.",
+    "promocion": "no",
+    "precio": "95",
+    "precio_descuento": "",
+    "imagen": "pizzaSuprema.png",
     "mostrarProducto": "si"
   },
   {
@@ -212,7 +224,7 @@
     "nombre": "Pizza Hawaiana - 8 porciones",
     "descripcion": "Jamón y piña sobre queso derretido.",
     "promocion": "no",
-    "precio": "50",
+    "precio": "55",
     "precio_descuento": "",
     "imagen": "pizzaHawaiana.png",
     "mostrarProducto": "si"
@@ -234,11 +246,23 @@
     "categoria": "Pizza de Especialidad",
     "subcategoria": "Mediana",
     "nombre": "Pizza Deluxe - 8 porciones",
-    "descripcion": "Salsa de tomate, carne, pepperoni, jamón, salami, salchicha italiana, champiñon, cebolla, chile pimiento y queso mozzarella. ",
+    "descripcion": "Pepperoni, salchicha italiana, champiñón, chile pimiento y cebolla.",
     "promocion": "no",
-    "precio": "65",
+    "precio": "70",
     "precio_descuento": "",
     "imagen": "pizzaDeluxe.png",
+    "mostrarProducto": "si"
+  },
+  {
+    "id": 49,
+    "categoria": "Pizza de Especialidad",
+    "subcategoria": "Mediana",
+    "nombre": "Pizza Suprema - 8 porciones",
+    "descripcion": "Jamón, carne, pepperoni, salchicha italiana, salami, champiñón, chile pimiento y cebolla.",
+    "promocion": "no",
+    "precio": "70",
+    "precio_descuento": "",
+    "imagen": "pizzaSuprema.png",
     "mostrarProducto": "si"
   },
   {
@@ -298,7 +322,7 @@
     "nombre": "Personal Deluxe",
     "descripcion": "",
     "promocion": "no",
-    "precio": "35",
+    "precio": "30",
     "precio_descuento": "",
     "imagen": "pizzaDeluxe.png",
     "mostrarProducto": "si"
@@ -310,7 +334,7 @@
     "nombre": "Personal 5 Carnes",
     "descripcion": "",
     "promocion": "no",
-    "precio": "35",
+    "precio": "30",
     "precio_descuento": "",
     "imagen": "pizza5Carnes.png",
     "mostrarProducto": "si"
@@ -322,7 +346,7 @@
     "nombre": "Personal Hawaiana",
     "descripcion": "",
     "promocion": "no",
-    "precio": "35",
+    "precio": "30",
     "precio_descuento": "",
     "imagen": "pizzaHawaiana.png",
     "mostrarProducto": "si"
@@ -371,7 +395,7 @@
     "nombre": "Calzone Deluxe",
     "descripcion": "",
     "promocion": "no",
-    "precio": "35",
+    "precio": "30",
     "precio_descuento": "",
     "imagen": "calzone.png",
     "mostrarProducto": "si"
@@ -383,7 +407,7 @@
     "nombre": "Calzone 5 Carnes",
     "descripcion": "",
     "promocion": "no",
-    "precio": "35",
+    "precio": "30",
     "precio_descuento": "",
     "imagen": "calzone.png",
     "mostrarProducto": "si"
@@ -395,7 +419,7 @@
     "nombre": "Calzone Hawaiano",
     "descripcion": "",
     "promocion": "no",
-    "precio": "35",
+    "precio": "30",
     "precio_descuento": "",
     "imagen": "calzone.png",
     "mostrarProducto": "si"
