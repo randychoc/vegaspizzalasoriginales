@@ -114,7 +114,7 @@
     "nombre": "Pizza 2 Estaciones - 12 porciones",
     "descripcion": "Carne / Pepperoni. Jamón / Carne. Salchicha / Salami.",
     "promocion": "no",
-    "precio": "55",
+    "precio": "60",
     "precio_descuento": "",
     "imagen": "pizza2Estaciones.png",
     "opciones": ["Carne / Pepperoni", "Jamón / Carne", "Salchicha / Salami"],
@@ -224,7 +224,7 @@
     "nombre": "Pizza de Pepperoni con orilla de queso",
     "descripcion": "8 porciones",
     "promocion": "no",
-    "precio": "55",
+    "precio": "60",
     "precio_descuento": "",
     "imagen": "pizzaPepperoniConOrillaQueso.png",
     "mostrarProducto": "si"
@@ -248,7 +248,7 @@
     "nombre": "Pizza 2 Estaciones - 8 porciones",
     "descripcion": "Carne / Pepperoni. Jamón / Carne. Salchicha / Salami.",
     "promocion": "no",
-    "precio": "45",
+    "precio": "50",
     "precio_descuento": "",
     "imagen": "pizza2Estaciones.png",
     "opciones": ["Carne / Pepperoni", "Jamón / Carne", "Salchicha / Salami"],
@@ -298,7 +298,7 @@
     "nombre": "Personal Deluxe",
     "descripcion": "",
     "promocion": "no",
-    "precio": "25",
+    "precio": "35",
     "precio_descuento": "",
     "imagen": "pizzaDeluxe.png",
     "mostrarProducto": "si"
@@ -310,7 +310,7 @@
     "nombre": "Personal 5 Carnes",
     "descripcion": "",
     "promocion": "no",
-    "precio": "25",
+    "precio": "35",
     "precio_descuento": "",
     "imagen": "pizza5Carnes.png",
     "mostrarProducto": "si"
@@ -322,7 +322,7 @@
     "nombre": "Personal Hawaiana",
     "descripcion": "",
     "promocion": "no",
-    "precio": "25",
+    "precio": "35",
     "precio_descuento": "",
     "imagen": "pizzaHawaiana.png",
     "mostrarProducto": "si"
@@ -334,7 +334,7 @@
     "nombre": "Personal Suprema",
     "descripcion": "",
     "promocion": "no",
-    "precio": "30",
+    "precio": "35",
     "precio_descuento": "",
     "imagen": "pizzaSuprema.png",
     "mostrarProducto": "si"
@@ -371,7 +371,7 @@
     "nombre": "Calzone Deluxe",
     "descripcion": "",
     "promocion": "no",
-    "precio": "25",
+    "precio": "35",
     "precio_descuento": "",
     "imagen": "calzone.png",
     "mostrarProducto": "si"
@@ -383,7 +383,7 @@
     "nombre": "Calzone 5 Carnes",
     "descripcion": "",
     "promocion": "no",
-    "precio": "25",
+    "precio": "35",
     "precio_descuento": "",
     "imagen": "calzone.png",
     "mostrarProducto": "si"
@@ -395,7 +395,7 @@
     "nombre": "Calzone Hawaiano",
     "descripcion": "",
     "promocion": "no",
-    "precio": "25",
+    "precio": "35",
     "precio_descuento": "",
     "imagen": "calzone.png",
     "mostrarProducto": "si"
@@ -407,7 +407,7 @@
     "nombre": "Calzone Supremo",
     "descripcion": "",
     "promocion": "no",
-    "precio": "30",
+    "precio": "35",
     "precio_descuento": "",
     "imagen": "calzone.png",
     "mostrarProducto": "si"
@@ -467,7 +467,7 @@
     "nombre": "Lasaña de 1 libra y media + coca cola",
     "descripcion": "Pasta, salsa boloñesa, carne y queso mozzarella.",
     "promocion": "no",
-    "precio": "40",
+    "precio": "45",
     "precio_descuento": "",
     "imagen": "lasanaPersonal.png",
     "mostrarProducto": "si"
