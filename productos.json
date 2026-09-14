@@ -8,7 +8,7 @@
     "promocion": "no",
     "precio": "50",
     "precio_descuento": "",
-    "imagen": "pizzaCarne.png",
+    "imagen": "pizzaCarne.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -20,7 +20,7 @@
     "promocion": "no",
     "precio": "50",
     "precio_descuento": "",
-    "imagen": "pizzaPepperoni.png",
+    "imagen": "pizzaPepperoni.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -32,7 +32,7 @@
     "promocion": "no",
     "precio": "50",
     "precio_descuento": "",
-    "imagen": "pizzaJamon.png",
+    "imagen": "pizzaJamon.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -44,7 +44,7 @@
     "promocion": "no",
     "precio": "85",
     "precio_descuento": "",
-    "imagen": "pizza5Carnes.png",
+    "imagen": "pizza5Carnes.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -56,7 +56,7 @@
     "promocion": "no",
     "precio": "85",
     "precio_descuento": "",
-    "imagen": "pizzaToscana.png",
+    "imagen": "pizzaToscana.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -68,7 +68,7 @@
     "promocion": "no",
     "precio": "70",
     "precio_descuento": "",
-    "imagen": "pizzaChapina.png",
+    "imagen": "pizzaChapina.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -80,7 +80,7 @@
     "promocion": "no",
     "precio": "70",
     "precio_descuento": "",
-    "imagen": "pizzaHawaiana.png",
+    "imagen": "pizzaHawaiana.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -92,7 +92,7 @@
     "promocion": "no",
     "precio": "65",
     "precio_descuento": "",
-    "imagen": "pizzaPepperoniConOrillaQueso.png",
+    "imagen": "pizzaPepperoniConOrillaQueso.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -104,7 +104,7 @@
     "promocion": "no",
     "precio": "90",
     "precio_descuento": "",
-    "imagen": "pizzaDeluxe.png",
+    "imagen": "pizzaDeluxe.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -116,7 +116,7 @@
     "promocion": "no",
     "precio": "95",
     "precio_descuento": "",
-    "imagen": "pizzaSuprema.png",
+    "imagen": "pizzaSuprema.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -128,7 +128,7 @@
     "promocion": "no",
     "precio": "60",
     "precio_descuento": "",
-    "imagen": "pizza2Estaciones.png",
+    "imagen": "pizza2Estaciones.jpg",
     "opciones": ["Carne / Pepperoni", "Jamón / Carne", "Salchicha / Salami"],
     "mostrarProducto": "si"
   },
@@ -141,7 +141,7 @@
     "promocion": "si",
     "precio": "110",
     "precio_descuento": "",
-    "imagen": "pizzaPromo3Medianas.png",
+    "imagen": "pizzaPromo3Medianas.jpg",
     "opciones": ["Carne", "Jamón", "Pepperoni"],
     "mostrarProducto": "si"
   },
@@ -154,7 +154,7 @@
     "promocion": "no",
     "precio": "40",
     "precio_descuento": "",
-    "imagen": "pizzaCarne.png",
+    "imagen": "pizzaCarne.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -166,7 +166,7 @@
     "promocion": "no",
     "precio": "40",
     "precio_descuento": "",
-    "imagen": "pizzaPepperoni.png",
+    "imagen": "pizzaPepperoni.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -178,7 +178,7 @@
     "promocion": "no",
     "precio": "40",
     "precio_descuento": "",
-    "imagen": "pizzaJamon.png",
+    "imagen": "pizzaJamon.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -190,7 +190,7 @@
     "promocion": "no",
     "precio": "65",
     "precio_descuento": "",
-    "imagen": "pizza5Carnes.png",
+    "imagen": "pizza5Carnes.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -202,7 +202,7 @@
     "promocion": "no",
     "precio": "65",
     "precio_descuento": "",
-    "imagen": "pizzaToscana.png",
+    "imagen": "pizzaToscana.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -214,7 +214,7 @@
     "promocion": "no",
     "precio": "60",
     "precio_descuento": "",
-    "imagen": "pizzaChapina.png",
+    "imagen": "pizzaChapina.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -226,7 +226,7 @@
     "promocion": "no",
     "precio": "55",
     "precio_descuento": "",
-    "imagen": "pizzaHawaiana.png",
+    "imagen": "pizzaHawaiana.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -238,7 +238,7 @@
     "promocion": "no",
     "precio": "60",
     "precio_descuento": "",
-    "imagen": "pizzaPepperoniConOrillaQueso.png",
+    "imagen": "pizzaPepperoniConOrillaQueso.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -250,7 +250,7 @@
     "promocion": "no",
     "precio": "70",
     "precio_descuento": "",
-    "imagen": "pizzaDeluxe.png",
+    "imagen": "pizzaDeluxe.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -262,7 +262,7 @@
     "promocion": "no",
     "precio": "70",
     "precio_descuento": "",
-    "imagen": "pizzaSuprema.png",
+    "imagen": "pizzaSuprema.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -274,7 +274,7 @@
     "promocion": "no",
     "precio": "50",
     "precio_descuento": "",
-    "imagen": "pizza2Estaciones.png",
+    "imagen": "pizza2Estaciones.jpg",
     "opciones": ["Carne / Pepperoni", "Jamón / Carne", "Salchicha / Salami"],
     "mostrarProducto": "si"
   },
@@ -299,7 +299,7 @@
     "promocion": "no",
     "precio": "20",
     "precio_descuento": "",
-    "imagen": "pizzaPersonal1Ingrediente.png",
+    "imagen": "pizzaPersonal1Ingrediente.jpg",
     "opciones": ["Pepperoni", "Jamón", "Carne"],
     "mostrarProducto": "si"
   },
@@ -307,12 +307,12 @@
     "id": 25,
     "categoria": "Personales",
     "subcategoria": "",
-    "nombre": "Chesse Breads",
-    "descripcion": "+ Coca cola",
+    "nombre": "Cheese Bread",
+    "descripcion": "",
     "promocion": "no",
     "precio": "20",
     "precio_descuento": "",
-    "imagen": "chesseBreads.png",
+    "imagen": "cheeseBread.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -324,7 +324,7 @@
     "promocion": "no",
     "precio": "30",
     "precio_descuento": "",
-    "imagen": "pizzaDeluxe.png",
+    "imagen": "pizzaDeluxe.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -336,7 +336,7 @@
     "promocion": "no",
     "precio": "30",
     "precio_descuento": "",
-    "imagen": "pizza5Carnes.png",
+    "imagen": "pizza5Carnes.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -348,7 +348,7 @@
     "promocion": "no",
     "precio": "30",
     "precio_descuento": "",
-    "imagen": "pizzaHawaiana.png",
+    "imagen": "pizzaHawaiana.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -360,7 +360,7 @@
     "promocion": "no",
     "precio": "35",
     "precio_descuento": "",
-    "imagen": "pizzaSuprema.png",
+    "imagen": "pizzaSuprema.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -372,7 +372,7 @@
     "promocion": "no",
     "precio": "20",
     "precio_descuento": "",
-    "imagen": "calzone.png",
+    "imagen": "calzone.jpg",
     "opciones": ["Jamón", "Carne", "Pepperoni"],
     "mostrarProducto": "si"
   },
@@ -385,7 +385,7 @@
     "promocion": "no",
     "precio": "20",
     "precio_descuento": "",
-    "imagen": "calzone.png",
+    "imagen": "calzone.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -397,7 +397,7 @@
     "promocion": "no",
     "precio": "30",
     "precio_descuento": "",
-    "imagen": "calzone.png",
+    "imagen": "calzone.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -409,7 +409,7 @@
     "promocion": "no",
     "precio": "30",
     "precio_descuento": "",
-    "imagen": "calzone.png",
+    "imagen": "calzone.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -421,7 +421,7 @@
     "promocion": "no",
     "precio": "30",
     "precio_descuento": "",
-    "imagen": "calzone.png",
+    "imagen": "calzone.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -433,7 +433,7 @@
     "promocion": "no",
     "precio": "35",
     "precio_descuento": "",
-    "imagen": "calzone.png",
+    "imagen": "calzone.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -493,7 +493,7 @@
     "promocion": "no",
     "precio": "45",
     "precio_descuento": "",
-    "imagen": "lasanaPersonal.png",
+    "imagen": "lasanaPersonal.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -505,7 +505,7 @@
     "promocion": "no",
     "precio": "110",
     "precio_descuento": "",
-    "imagen": "lasanaFamiliar.png",
+    "imagen": "lasanaFamiliar.jpg",
     "mostrarProducto": "si"
   },
   {
@@ -517,7 +517,7 @@
     "promocion": "no",
     "precio": "50",
     "precio_descuento": "",
-    "imagen": "alitasGeneral.png",
+    "imagen": "alitasGeneral.jpg",
     "opciones": ["Búfalo", "Barbacoa"],
     "mostrarProducto": "si"
   },
@@ -530,7 +530,7 @@
     "promocion": "no",
     "precio": "100",
     "precio_descuento": "",
-    "imagen": "alitasGeneral.png",
+    "imagen": "alitasGeneral.jpg",
     "opciones": ["Búfalo", "Barbacoa"],
     "mostrarProducto": "si"
   },
