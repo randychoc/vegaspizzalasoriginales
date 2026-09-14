@@ -12,6 +12,16 @@ There are 2 branches. GitHub Pages deploys exclusively from the `deployProduccio
 
 Workflow: develop and commit on `main` → merge into `deployProduccion` to publish.
 
+Pages runs in `legacy` mode (`build_type: legacy`), so the `pages-build-deployment` run
+is generated and maintained by GitHub — the repo has no `.github/workflows/`. Its
+recurring "Node.js 20 is deprecated / actions/upload-artifact@v4" annotation is GitHub's
+own action, not ours, and is not actionable here. Deploys take roughly 40s; verify with
+a cache-busted request rather than trusting the push:
+
+```bash
+curl -s "https://vegaspizzalasoriginales.com/productos.json?cb=$RANDOM" | head -c 200
+```
+
 ## Tech Stack
 
 - Vanilla HTML/CSS/JavaScript (no framework, no bundler)
@@ -46,6 +56,58 @@ Workflow: develop and commit on `main` → merge into `deployProduccion` to publ
 - Every product image should exist in both `.jpg` and `.webp` formats
 - Product cards use `<picture>` tags with WebP source + JPG fallback
 - Reference only the filename (without path) in `productos.json`; `script.js` prepends `img/`
+- Naming is camelCase (`pizzaHawaiana.jpg`, `cheeseBread.webp`)
+
+**The `imagen` field must name a file that actually exists.** `script.js` builds the
+`<source>` WebP by swapping the extension (`.jpg`/`.png` → `.webp`) and uses the raw value
+for the `<img>` fallback. A name whose WebP exists but whose literal file does not still
+*looks* fine — the WebP carries the page — while the fallback is silently broken for
+browsers without WebP support. After any image change, verify both files resolve:
+
+```bash
+python3 -c "
+import json,os
+vis=[p for p in json.load(open('productos.json')) if p['mostrarProducto']=='si']
+bad=[p['imagen'] for p in vis if not os.path.exists('img/'+p['imagen'])
+     or not os.path.exists('img/'+p['imagen'].rsplit('.',1)[0]+'.webp')]
+print('roto:', bad or 'ninguno')"
+```
+
+### Product photo size
+
+Product photos are **720×720, quality 80**. `.producto-img` renders at `width: 100%`
+(~356px in a Bootstrap `col-md-4`) with `height: 180px` and `object-fit: cover`, so 720px
+covers 2× retina. The `width="280"` attribute in `script.js` is only a CLS placeholder —
+CSS overrides it, so don't size images from that number.
+
+Originals come in at 1080–1200px. To add or replace a product photo:
+
+```bash
+cwebp -resize 720 0 -q 80 -quiet origen.png -o img/nombre.webp   # from the ORIGINAL
+sips -Z 720 -s format jpeg -s formatOptions 80 origen.png --out img/nombre.jpg
+```
+
+Always generate the WebP from the original, never from the downscaled JPG — double
+compression costs quality for nothing. `cwebp` is installed; ImageMagick and PIL are not
+(`sips` is the macOS fallback and compresses JPEG poorly, but the JPG is only served to
+the <5% of browsers lacking WebP, so it rarely matters).
+
+**Do not batch-resize the whole `img/` folder.** These are deliberately excluded:
+
+| File | Why |
+|---|---|
+| `vegasPizzaLogo.*` | `og:image` (link previews want ≥1200px) + `apple-touch-icon` |
+| `fondoOficial.jpg` | full-width CSS background (`style.css:17`) |
+| `wa_compressed_.jpg` | WhatsApp float icon, already 512px/8KB — `sips` *inflates* it |
+| `entrega.png`, `repartidor.png` | flat graphics, correct as PNG and only 6–9KB |
+
+PNG vs JPG: photos → JPG (or WebP); logos, icons and flat graphics → PNG. Product photos
+keep no PNG original in the repo — the repo is what GitHub Pages serves, so a 1.2MB
+unreferenced original is dead weight. Keep originals outside the repo.
+
+**Known gap:** 9 hidden products (ids 22, 36–39, 44–47) reference `logoTemporal.png`,
+which does not exist in any format. They are all `mostrarProducto: "no"`, so nothing
+breaks today — but they need a real image before being made visible.
 
 ## Language & Locale
 
